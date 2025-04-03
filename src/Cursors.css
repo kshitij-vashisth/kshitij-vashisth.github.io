@@ -1,0 +1,15 @@
+/* Apply custom cursor globally and for all states */
+html, body, *, button, a, input,
+.disabled, a:disabled, input:disabled {
+  cursor: url('/cursors/idle3.svg'), auto;
+}
+
+button:hover, a:hover, input:hover, .hover:hover {
+	cursor: url('/cursors/cursor-pointer2.svg'), auto;
+  }
+
+  .curZur {
+    cursor: url('/cursors/cursor-pointer2.svg'), auto;
+    user-select: none;
+  }
+  

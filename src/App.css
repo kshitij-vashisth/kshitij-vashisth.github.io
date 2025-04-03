@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'myFirstFont';
+  src: url("/fonts/Neue-Plak-Regular.ttf") format("truetype");
+}
+
+.translucent-container {
+  background-color: black;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  overflow: hidden; /* overflow-hidden */
+  max-width: 48rem; /* max-w-3xl (48rem = 768px in Tailwind) */
+  backdrop-filter: blur(8px); /* backdrop-blur-md */
+}
+
+.font-custom {
+  font-family: 'myFirstFont';
+}
+
+.custom-green-bg {
+  background-color: #20C20E;
+}
+
+.custom-green {
+  color: #20C20E;
+}
+
+.custom-green-bg:hover {
+  background-color: #1A9A0B;
+}
+
+.custom-outline-white {
+  -webkit-text-stroke: 0.5px white;
+  /* Adjust thickness & color */
+}
+
+.custom-outline-green {
+  -webkit-text-stroke: 0.5px #20C20E;
+  /* Adjust thickness & color */
+}
+
+.slide-in-fade {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 2rem;
+  /* Equivalent to px-8 py-3 */
+  border-radius: 0.5rem;
+  /* Equivalent to rounded */
+  background-color: #20C20E;
+  /* Equivalent to bg-gray-800 */
+  color: black;
+  margin-top: 1.5rem;
+  /* Equivalent to mt-6 */
+  opacity: 1;
+  display: inline-block;
+  cursor: url('/cursors/cursor-pointer2.svg'), auto;
+  user-select: none;
+}
+
+.slide-in-fade:hover{
+  border: 3px solid #20C20E;
+}
+
+.slide-in-fade::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  /* Green wave */
+  transition: top 0.5s ease-in-out;
+  pointer-events: none;
+}
+
+.slide-in-fade:hover::before {
+  top: 0;
+}
+
+.slide-in-fade span {
+  position: relative;
+  z-index: 10;
+}
+
+.slide-in-fade:hover .color-switch {
+  animation: colorSwitch 1.2s infinite linear;
+}
+
+@keyframes colorSwitch {
+  0% {
+    color: #000;
+  }
+
+  /* Black */
+  50% {
+    color: #20C20E;
+  }
+
+  /* Matrix green */
+  100% {
+    color: #000;
+  }
+
+  /* Back to Black */
+}

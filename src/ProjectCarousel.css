@@ -1,0 +1,91 @@
+/* --- Ensure the carousel stays within bounds --- */
+.projects-container {
+  position: relative;
+  width: 90%; /* Adjust width as needed */
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+/* Make sure the slides have a fixed size and spacing */
+.project-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  padding: 10px; /* Add space between slides */
+}
+
+.project-image {
+  width: 100%;
+  height: 250px; /* Fixed height */
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* --- Modal Styling --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Dimmed background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Ensure it's above everything */
+}
+
+.modal-content {
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 70%;
+  max-width: 1080px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal-close {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Prevent scrolling when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* scroller colors */
+
+/* Custom scrollbar for the modal */
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #1a1a1a; /* Dark background */
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #20C20E; /* Green scrollbar */
+  border-radius: 5px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #1A9A0B; /* Darker green on hover */
+}
