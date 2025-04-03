@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import font1 from "./matrixFont.ttf"
 
 const MatrixRainingCode = () => {
   const canvasRef = useRef(null);
@@ -23,7 +24,7 @@ const MatrixRainingCode = () => {
 
     // Load custom font
     const loadFont = async () => {
-      const font = new FontFace("MatrixFont", "url(/fonts/matrixFont.ttf)"); // Adjust path
+      const font = new FontFace("MatrixFont", `url(${new URL(font1, import.meta.url)})`);
       await font.load();
       document.fonts.add(font);
     };

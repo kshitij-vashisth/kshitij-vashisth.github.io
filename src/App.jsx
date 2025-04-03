@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Intro from './components/Intro';
 import Headline from './components/Headline';
 import Projects from './components/Projects';
-import BrainCanvas from './components/BrainCanvas';
+// import BrainCanvas from './components/BrainCanvas';
 import StreamerText from './components/StreamerText';
 import IconSphere from './components/IconSphere';
 import PersonalInfo from './components/PersonalInfo';
@@ -50,7 +50,7 @@ function App() {
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
           <div className="h-[50vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none mr-[5.5vw]">
-            <BrainCanvas />
+
           </div>
 
         )}

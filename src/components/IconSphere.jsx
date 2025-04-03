@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import reactsvg from '/icons/react.svg'
+import nextsvg from '/icons/nextjs-original.svg'
 
 
 const IconSphere = () => {
@@ -27,20 +29,24 @@ const IconSphere = () => {
     );
     scene.add(sphere);
 
+    // const iconFiles = [
+    //   'react.svg', 'nextjs-original.svg', 'nodejs-original.svg', 'docker-original.svg', 
+    //   'python-original.svg', 'git-original.svg', 'express-original.svg', 'flask-original.svg',
+    //   'pytorch-original.svg', 'tensorflow-original.svg', 'pandas-original.svg',
+    //   'scikitlearn-original.svg','bootstrap-original.svg','tailwindcss-original.svg',
+    //   'github-original.svg', 'mongodb-original.svg', 'rabbitmq-original.svg', 'unity-original.svg',
+    //   'mysql-original.svg', 'bash-original.svg' // REPLACE THIS WITH YOUR ACTUAL ICON FILENAMES
+    // ];
+
     const iconFiles = [
-      'react.svg', 'nextjs-original.svg', 'nodejs-original.svg', 'docker-original.svg', 
-      'python-original.svg', 'git-original.svg', 'express-original.svg', 'flask-original.svg',
-      'pytorch-original.svg', 'tensorflow-original.svg', 'pandas-original.svg',
-      'scikitlearn-original.svg','bootstrap-original.svg','tailwindcss-original.svg',
-      'github-original.svg', 'mongodb-original.svg', 'rabbitmq-original.svg', 'unity-original.svg',
-      'mysql-original.svg', 'bash-original.svg' // REPLACE THIS WITH YOUR ACTUAL ICON FILENAMES
+      reactsvg, nextsvg, 
     ];
 
     const textureLoader = new THREE.TextureLoader();
     const iconGeometry = new THREE.PlaneGeometry(0.5, 0.5);
 
     iconFiles.forEach((file, index) => {
-      textureLoader.load(`/icons/${file}`, (texture) => {
+      textureLoader.load(new URL(file, import.meta.url).href, (texture) => {
         const icon = new THREE.Mesh(
           iconGeometry,
           new THREE.MeshBasicMaterial({ 
