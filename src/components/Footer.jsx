@@ -14,7 +14,7 @@ const Footer = () => {
         kshitijvashisth@gmail.com
       </a>
       <p><a
-        href="" target="_blank" className='hover:underline'
+        href="https://drive.google.com/file/d/1arUBFumXGHY-PhNOnrcTE-N9g_H9q5kB/view?usp=sharing" target="_blank" className='hover:underline'
       >
         Link to Resume
       </a></p>
