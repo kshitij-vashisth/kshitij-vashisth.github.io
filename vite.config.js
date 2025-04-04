@@ -10,6 +10,8 @@ export default defineConfig({
   ],
   assetsInclude:[
     '**/*.glb',
+    '**/*.gltf',
+    '**/*.bin',
   ],
   base: "/KshitijVashisth",
 })

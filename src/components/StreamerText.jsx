@@ -19,17 +19,21 @@ const StreamerText = ({ texts, direction = 1, speed = 1.2 }) => {
   }, []);
 
   useEffect(() => {
-    const handleScroll = (event) => {
+    const handleScroll = () => {
       setOffset((prev) => {
-        let newOffset = prev + event.deltaY * 0.5 * direction * speed;
-        if (newOffset > textWidth) return newOffset - textWidth;
-        if (newOffset < 0) return textWidth + newOffset;
+        // Use window.scrollY to determine the horizontal offset
+        const scrollY = window.scrollY;
+        let newOffset = scrollY * 0.5 * direction * speed;
+        
+        // Wrap around if exceeding textWidth
+        if (newOffset > textWidth) return newOffset % textWidth;
+        if (newOffset < 0) return textWidth + (newOffset % textWidth);
         return newOffset;
       });
     };
-
-    window.addEventListener("wheel", handleScroll);
-    return () => window.removeEventListener("wheel", handleScroll);
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [direction, textWidth, speed]);
 
   return (
