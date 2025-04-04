@@ -50,7 +50,7 @@ function App() {
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
           <div className="h-[50vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none mr-[5.5vw]">
-<BrainCanvas/>
+            <BrainCanvas />
           </div>
 
         )}
@@ -62,8 +62,8 @@ function App() {
           " Pandas ", " MatPlotLib ", " Scikit-Learn ", " Bootstrap ", " TailwindCSS ", " Git ", " Docker ",
           " MongoDB ", " RabbitMQ ", " Render ", " Unity ", " Vite ", " SQLAlchemy ", " AJAX ", " PyTest "
         ]} direction={1} speed={0.3} />
-        </section>
-        <section className="mb-[5vh] mt-0.5 flex flex-col h-auto items-center">
+      </section>
+      <section className="mb-[5vh] mt-0.5 flex flex-col h-auto items-center">
         <StreamerText texts={[
           " Data Science ", " Machine Learning ", " Predictive Modelling ", " Statistical Analysis ",
           " Software Development ", " Algorithms ", " Data Structures ", " Web Development ",
@@ -78,12 +78,17 @@ function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="h-auto grid grid-cols-2 items-center justify-center">
-        <div className='flex justify-center items-center flex-col' style={{ overflow: 'hidden' }}>
-          <IconSphere />
-        </div>
-        <div className='flex justify-center items-center flex-col'>
-          <PersonalInfo/>
+      <section className="mt-[5vh] flex h-auto justify-center items-center">
+        {isDesktop && (
+          
+          <div className='flex justify-center items-center flex-col' style={{ overflow: 'hidden' }}>
+            <IconSphere />
+          </div>
+
+        )}
+
+        <div className={`flex-grow flex flex-col justify-center items-center ${isDesktop ? 'mr-[10vw]' : 'mx-[10vw] mb-4'}`}>
+          <PersonalInfo />
         </div>
       </section>
       <section className="h-auto flex items-center justify-center">
