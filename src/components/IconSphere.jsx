@@ -6,25 +6,26 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // Import icons
 import reactsvg from '/icons/react.svg'
-import nextsvg from '/icons/nextjs-original.svg'
-import nodejssvg from '/icons/nodejs-original.svg'
-import dockersvg from '/icons/docker-original.svg'
-import pythonsvg from '/icons/python-original.svg'
-import gitsvg from '/icons/git-original.svg'
-import expressSvg from '/icons/express-original.svg'
-import flasksvg from '/icons/flask-original.svg'
-import pytorchsvg from '/icons/pytorch-original.svg'
-import tensorflow from '/icons/tensorflow-original.svg'
-import pandasSvg from '/icons/pandas-original.svg'
-import scikitlearnsvg from '/icons/scikitlearn-original.svg'
-import bootstrapsvg from '/icons/bootstrap-original.svg'
-import tailwindcsssvg from '/icons/tailwindcss-original.svg'
-import githubsvg from '/icons/github-original.svg'
-import mongodbsvg from '/icons/mongodb-original.svg'
-import rabbitmqsvg from '/icons/rabbitmq-original.svg'
-import unitysvg from '/icons/unity-original.svg'
-import mysqlsvg from '/icons/mysql-original.svg'
-import bashsvg from '/icons/bash-original.svg'
+import nextsvg from '/icons/nextjs-original.png'
+import nodejssvg from '/icons/nodejs-original.png'
+import dockersvg from '/icons/docker-original.png'
+import pythonsvg from '/icons/python-original.png'
+import gitsvg from '/icons/git-original.png'
+import expressSvg from '/icons/express-original.png'
+import flasksvg from '/icons/flask-original.png'
+import pytorchsvg from '/icons/pytorch-original.png'
+import tensorflow from '/icons/tensorflow-original.png'
+import pandasSvg from '/icons/pandas-original.png'
+import scikitlearnsvg from '/icons/scikitlearn-original.png'
+import bootstrapsvg from '/icons/bootstrap-original.png'
+import tailwindcsssvg from '/icons/tailwindcss-original.png'
+import githubsvg from '/icons/github-original.png'
+import mongodbsvg from '/icons/mongodb-original.png'
+import rabbitmqsvg from '/icons/rabbitmq-original.png'
+import unitysvg from '/icons/unity-original.png'
+import mysqlsvg from '/icons/mysql-original.png'
+import sqlapng from '/icons/SQLAlchemy.png'
+import bashsvg from '/icons/bash-original.png'
 
 
 const IconSphere = () => {
@@ -64,7 +65,7 @@ const IconSphere = () => {
       reactsvg, nextsvg, nodejssvg, dockersvg, 
       pythonsvg, gitsvg, expressSvg, flasksvg, 
       pytorchsvg, tensorflow, pandasSvg, scikitlearnsvg, 
-      bootstrapsvg, tailwindcsssvg, githubsvg, mongodbsvg, rabbitmqsvg, unitysvg, mysqlsvg, bashsvg];
+      bootstrapsvg, tailwindcsssvg, githubsvg, mongodbsvg, rabbitmqsvg, unitysvg, mysqlsvg, sqlapng, bashsvg];
 
 
     const textureLoader = new THREE.TextureLoader();
