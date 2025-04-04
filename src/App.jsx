@@ -41,7 +41,7 @@ function App() {
       {/* Main Section */}
       <section className="mt-[5vh] flex h-auto items-center">
         {/* Left column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'ml-[5.5vw]' : 'mb-10'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'ml-[5.5vw] w-full' : 'mb-4 mx-6'}`}>
           <Headline />
           <Intro />
         </div>
@@ -49,7 +49,7 @@ function App() {
 
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
-          <div className="h-[50vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none mr-[5.5vw]">
+          <div className="h-[80vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center w-[80vw] custom-green select-none mr-[5.5vw]">
             <BrainCanvas />
           </div>
 
