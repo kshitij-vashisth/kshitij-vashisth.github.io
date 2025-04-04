@@ -4,7 +4,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import * as THREE from "three";
-import brainModel from "/brain/scene.gltf"
+import brainModel from "/brain/brain.glb"
 
 const Brain = () => {
   const brainRef = useRef();

@@ -56,20 +56,21 @@ function App() {
         )}
 
       </section>
-      <section className="my-[5vh] flex flex-col h-auto items-center">
+      <section className="mt-[5vh] mb-0.5 flex flex-col h-auto items-center">
         <StreamerText texts={[
           " Next.js ", " React.js ", " Node.js ", " Express.js ", " Flask ", " PyTorch ", " TensorFlow ",
           " Pandas ", " MatPlotLib ", " Scikit-Learn ", " Bootstrap ", " TailwindCSS ", " Git ", " Docker ",
           " MongoDB ", " RabbitMQ ", " Render ", " Unity ", " Vite ", " SQLAlchemy ", " AJAX ", " PyTest "
-        ]} direction={1} speed={0.8} />
-
+        ]} direction={1} speed={0.3} />
+        </section>
+        <section className="mb-[5vh] mt-0.5 flex flex-col h-auto items-center">
         <StreamerText texts={[
           " Data Science ", " Machine Learning ", " Predictive Modelling ", " Statistical Analysis ",
           " Software Development ", " Algorithms ", " Data Structures ", " Web Development ",
           " Problem-Solving ", " Containerisation ", " User Authentication ",
           " Responsive Design ", " Version Control ", " Product Design ", " Data Engineering ",
           " High Performance Computing ", " Accelerated Computing "
-        ]} direction={-1} speed={0.8} />
+        ]} direction={-1} speed={0.3} />
       </section>
       {/* Projects Section */}
       <section className="h-auto flex items-center justify-center">
