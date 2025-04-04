@@ -50,7 +50,7 @@ function App() {
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
           <div className="h-[50vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none mr-[5.5vw]">
-<p>There will be an interactive brai here soon, please keep checking</p>
+<p>There will be an interactive brain here soon, please keep checking</p>
           </div>
 
         )}
