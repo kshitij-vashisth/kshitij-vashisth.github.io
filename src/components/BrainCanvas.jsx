@@ -4,11 +4,11 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import * as THREE from "three";
-import brain1 from "./brain/scene.gltf"
+import brainModel from "/brain/brain.glb"
 
 const Brain = () => {
   const brainRef = useRef();
-  const { scene } = useLoader(GLTFLoader, (new URL(brain1, import.meta.url).href));
+  const { scene } = useLoader(GLTFLoader, (new URL(brainModel, import.meta.url).href));
 
   const [mouseX, setMouseX] = useState(0);
 

@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss()
   ],
   assetsInclude:[
-    '**/*.gltf',
+    '**/*.glb',
   ],
   base: "/KshitijVashisth",
 })
