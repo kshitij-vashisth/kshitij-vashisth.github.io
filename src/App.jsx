@@ -81,7 +81,7 @@ function App() {
       <section className="mt-[5vh] flex h-auto justify-center items-center">
         {isDesktop && (
           
-          <div className='flex justify-center items-center flex-col' style={{ overflow: 'hidden' }}>
+          <div className='flex justify-center items-center flex-col ml-[10vw]' style={{ overflow: 'hidden' }}>
             <IconSphere />
           </div>
 
