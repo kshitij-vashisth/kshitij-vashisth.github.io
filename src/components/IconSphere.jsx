@@ -1,8 +1,30 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+
+
+// Import icons
 import reactsvg from '/icons/react.svg'
 import nextsvg from '/icons/nextjs-original.svg'
+import nodejssvg from '/icons/nodejs-original.svg'
+import dockersvg from '/icons/docker-original.svg'
+import pythonsvg from '/icons/python-original.svg'
+import gitsvg from '/icons/git-original.svg'
+import expressSvg from '/icons/express-original.svg'
+import flasksvg from '/icons/flask-original.svg'
+import pytorchsvg from '/icons/pytorch-original.svg'
+import tensorflow from '/icons/tensorflow-original.svg'
+import pandasSvg from '/icons/pandas-original.svg'
+import scikitlearnsvg from '/icons/scikitlearn-original.svg'
+import bootstrapsvg from '/icons/bootstrap-original.svg'
+import tailwindcsssvg from '/icons/tailwindcss-original.svg'
+import githubsvg from '/icons/github-original.svg'
+import mongodbsvg from '/icons/mongodb-original.svg'
+import rabbitmqsvg from '/icons/rabbitmq-original.svg'
+import unitysvg from '/icons/unity-original.svg'
+import mysqlsvg from '/icons/mysql-original.svg'
+import bashsvg from '/icons/bash-original.svg'
 
 
 const IconSphere = () => {
@@ -39,8 +61,11 @@ const IconSphere = () => {
     // ];
 
     const iconFiles = [
-      reactsvg, nextsvg, 
-    ];
+      reactsvg, nextsvg, nodejssvg, dockersvg, 
+      pythonsvg, gitsvg, expressSvg, flasksvg, 
+      pytorchsvg, tensorflow, pandasSvg, scikitlearnsvg, 
+      bootstrapsvg, tailwindcsssvg, githubsvg, mongodbsvg, rabbitmqsvg, unitysvg, mysqlsvg, bashsvg];
+
 
     const textureLoader = new THREE.TextureLoader();
     const iconGeometry = new THREE.PlaneGeometry(0.5, 0.5);
