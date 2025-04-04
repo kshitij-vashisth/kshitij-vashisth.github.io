@@ -81,13 +81,13 @@ function App() {
       <section className="mt-[5vh] flex h-auto justify-center items-center">
         {isDesktop && (
           
-          <div className='flex justify-center items-center flex-col ml-[10vw]' style={{ overflow: 'hidden' }}>
+          <div className='flex justify-center items-center flex-col ml-[7vw] mr-[2vw] w-full' style={{ overflow: 'hidden' }}>
             <IconSphere />
           </div>
 
         )}
 
-        <div className={`flex-grow flex flex-col justify-center items-center ${isDesktop ? 'mr-[10vw]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center w-[75vw] ${isDesktop ? 'ml-[2vw] mr-[7vw]' : 'mx-[10vw] mb-4'}`}>
           <PersonalInfo />
         </div>
       </section>
