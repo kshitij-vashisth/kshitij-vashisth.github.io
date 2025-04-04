@@ -49,7 +49,7 @@ function App() {
 
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
-          <div className="h-[80vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center w-[80vw] custom-green select-none mr-[3.5vw]">
+          <div className="h-[70vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center w-[90vw] custom-green select-none mr-[3.5vw]">
             <BrainCanvas />
           </div>
 
