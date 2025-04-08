@@ -10,6 +10,7 @@ import BrainCanvas from './components/BrainCanvas';
 import StreamerText from './components/StreamerText';
 import IconSphere from './components/IconSphere';
 import PersonalInfo from './components/PersonalInfo';
+import RotatingSphere from './components/RotatingSphere';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,8 +84,8 @@ function App() {
       {/* Tech Stack Section */}
       <div className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex h-[240vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw]'>
-              <IconSphere />
+          <div className='flex justify-center items-center flex-col pr-[2vw] mx-[4vw]'>
+              <RotatingSphere />
           </div>
         )}
 
