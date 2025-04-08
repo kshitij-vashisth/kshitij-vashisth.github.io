@@ -39,21 +39,24 @@ function App() {
 
 
       {/* Main Section */}
-      <section className="mt-[5vh] flex h-auto items-center">
-        {/* Left column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'ml-[3.5vw] mr-[-1.5vw]' : 'mb-4 mx-6'}`}>
-          <Headline />
-          <Intro />
-        </div>
+      <section className={`
+  mt-[5vh] h-auto items-center
+  ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}
+`}>
 
-
-        {/* Right column with BrainCanvas (Only on Desktop) */}
+        {/* Left column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
-          <div className="h-[45vh] mr-[10vw] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
+          <div className="h-[45vh] ml-[10vw] rounded-3xl translucent-container mt-10 mb-5 mr-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
             <BrainCanvas />
           </div>
 
         )}
+
+        {/* Right column with Headline and Intro */}
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-auto' : 'mb-4 mx-6'}`}>
+          <Headline />
+          <Intro />
+        </div>
 
       </section>
       <section className="mt-[5vh] mb-0.5 flex flex-col h-auto items-center">
@@ -80,20 +83,25 @@ function App() {
       {/* Tech Stack Section */}
       <section className="mt-[5vh] flex h-auto justify-center items-center">
         {isDesktop && (
-          
-          <div className='flex globe justify-center items-center flex-col ml-[7vw] mr-[2vw] w-full' style={{ overflow: 'hidden' }}>
-            <IconSphere />
+
+          <div className='flex globe justify-center items-center flex-col h-[220vh] w-[150vw] ml-[12vw] mr-[2vw] mb-[-100vh]' style={{ overflow: 'hidden' }}>
+            <div className="flex items-center justify-center px-[15vw]">
+              <IconSphere />
+            </div>
           </div>
 
         )}
 
-        <div className={`flex-grow flex flex-col justify-center items-center w-[75vw] ${isDesktop ? 'ml-[2vw] mr-[7vw]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center w-[75vw] ${isDesktop ? 'mt-[-100vh] ml-[2vw] mr-[7vw] mb-[-100vh]' : 'mx-[10vw] mb-4'}`}>
           <PersonalInfo />
         </div>
       </section>
       <section className="h-auto flex items-center justify-center">
         {/* Footer */}
-        <Footer className="w-full flex justify-center" />
+        <footer className='mt-auto'>
+          <Footer className="w-full flex justify-center" />
+        </footer>
+
       </section>
     </div>
   );

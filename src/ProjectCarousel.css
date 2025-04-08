@@ -22,7 +22,7 @@
 
 .project-image {
   width: 100%;
-  height: 250px; /* Fixed height */
+  height: 100%; /* Fixed height */
   object-fit: contain;
   border-radius: 1.5rem;
   border-radius: 10px;

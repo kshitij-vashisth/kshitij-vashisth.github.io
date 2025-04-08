@@ -47,8 +47,8 @@ const IconSphere = () => {
 
     // Wireframe sphere (optional visual guide)
     const sphere = new THREE.Mesh(
-      new THREE.SphereGeometry(3, 32, 32),
-      new THREE.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: 0.1 })
+      new THREE.SphereGeometry(2.2, 20, 20),
+      new THREE.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: 0})
     );
     scene.add(sphere);
 
@@ -85,7 +85,7 @@ const IconSphere = () => {
         // Position evenly on sphere
         const phi = Math.acos(-1 + (2 * index) / iconFiles.length);
         const theta = Math.sqrt(iconFiles.length * Math.PI) * phi;
-        icon.position.setFromSphericalCoords(3.2, phi, theta);
+        icon.position.setFromSphericalCoords(2.3, phi, theta);
         icon.lookAt(new THREE.Vector3(0, 0, 0));
         scene.add(icon);
       });
@@ -102,7 +102,7 @@ const IconSphere = () => {
     return () => mountRef.current?.removeChild(renderer.domElement);
   }, []);
 
-  return <div ref={mountRef} style={{ width: '100vw', height: '100vh' }} />;
+  return <div ref={mountRef} />;
 };
 
 export default IconSphere;

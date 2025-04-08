@@ -3,7 +3,7 @@ import React from 'react'
 const Headline = () => {
     return (
         <>
-            <div className="text-6xl flex space-x-4 space-y-6">
+            <div className="text-3xl flex space-x-4 space-y-6">
                 <p>👋</p>
                 <div className="custom-green-bg text-white px-4 rounded font-bold">
                     I'M
