@@ -41,7 +41,7 @@ function App() {
       {/* Main Section */}
       <section className="mt-[5vh] flex h-auto items-center">
         {/* Left column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'ml-[3.5vw] w-full' : 'mb-4 mx-6'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'ml-[3.5vw] mr-[-1.5vw]' : 'mb-4 mx-6'}`}>
           <Headline />
           <Intro />
         </div>
@@ -49,7 +49,7 @@ function App() {
 
         {/* Right column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
-          <div className="h-[70vh] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center w-[90vw] custom-green select-none mr-[3.5vw]">
+          <div className="h-[45vh] mr-[10vw] rounded-3xl translucent-container mt-10 mb-5 ml-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
             <BrainCanvas />
           </div>
 
@@ -81,7 +81,7 @@ function App() {
       <section className="mt-[5vh] flex h-auto justify-center items-center">
         {isDesktop && (
           
-          <div className='flex justify-center items-center flex-col ml-[7vw] mr-[2vw] w-full' style={{ overflow: 'hidden' }}>
+          <div className='flex globe justify-center items-center flex-col ml-[7vw] mr-[2vw] w-full' style={{ overflow: 'hidden' }}>
             <IconSphere />
           </div>
 

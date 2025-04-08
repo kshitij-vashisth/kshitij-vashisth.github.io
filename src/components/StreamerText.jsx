@@ -9,8 +9,8 @@ const StreamerText = ({ texts, direction = 1, speed = 0.6 }) => {
   const lastScrollYRef = useRef(window.scrollY);
 
   const sandwichedText = texts
-    .map((text) => `${text} <span class="text-white">•</span>`)
-    .join("\u00A0");
+    .map((text) => `<span class="text-[white]"> ${text}</span>\u00A0<span class="text-[#20C20E]"> • </span>\u00A0`)
+    .join("");
   const repeatedText = Array(50).fill(sandwichedText).join("\u00A0");
 
   useEffect(() => {

@@ -60,7 +60,7 @@ const Brain = () => {
 
 const BrainCanvas = () => {
   return (
-    <Canvas camera={{ position: [0, 0, 5] }} style={{ background: "transparent" }}>
+    <Canvas camera={{ position: [0, 0, 5] }} style={{ background: "transparent", color:"#20C20E" }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[2, 2, 5]} intensity={1} />
       <Brain />
