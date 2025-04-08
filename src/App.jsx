@@ -81,9 +81,9 @@ function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
+      <div className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex h-[170vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw] mb-[-60vh]'>
+          <div className='flex h-[170vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw]'>
               <IconSphere />
           </div>
         )}
@@ -92,7 +92,7 @@ function App() {
           <PersonalInfo />
         </div>
 
-      </section>
+      </div>
       <section className="h-auto flex items-center justify-center">
         {/* Footer */}
         <footer className='mt-auto'>
