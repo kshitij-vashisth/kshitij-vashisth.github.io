@@ -83,7 +83,7 @@ function App() {
       {/* Tech Stack Section */}
       <div className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex h-[170vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw]'>
+          <div className='flex h-[240vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw]'>
               <IconSphere />
           </div>
         )}
