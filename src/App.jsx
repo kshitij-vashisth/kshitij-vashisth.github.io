@@ -46,14 +46,14 @@ function App() {
 
         {/* Left column with BrainCanvas (Only on Desktop) */}
         {isDesktop && (
-          <div className="h-[45vh] ml-[10vw] rounded-3xl translucent-container mt-10 mb-5 mr-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
+          <div className="h-[45vh] ml-[5vw] rounded-3xl translucent-container mt-10 mb-5 mr-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
             <BrainCanvas />
           </div>
 
         )}
 
         {/* Right column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-auto' : 'mb-4 mx-6'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[5vw]' : 'mb-4 mx-10'}`}>
           <Headline />
           <Intro />
         </div>
@@ -81,20 +81,17 @@ function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="mt-[5vh] flex h-auto justify-center items-center">
+      <section className={`mt-[5vh] h-[100vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-
-          <div className='flex globe justify-center items-center flex-col h-[220vh] w-[150vw] ml-[12vw] mr-[2vw] mb-[-100vh]' style={{ overflow: 'hidden' }}>
-            <div className="flex items-center justify-center px-[15vw]">
+          <div className='flex globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw]'>
               <IconSphere />
-            </div>
           </div>
-
         )}
 
-        <div className={`flex-grow flex flex-col justify-center items-center w-[75vw] ${isDesktop ? 'mt-[-100vh] ml-[2vw] mr-[7vw] mb-[-100vh]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mt-[-100vh]' : 'mx-[10vw] mb-4'}`}>
           <PersonalInfo />
         </div>
+
       </section>
       <section className="h-auto flex items-center justify-center">
         {/* Footer */}

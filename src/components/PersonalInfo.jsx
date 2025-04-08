@@ -28,7 +28,7 @@ const PersonalInfo = () => {
         <p className="text-xl text-left text-white">
           Tech Stack
         </p>
-        <p className="text-4xl text-left">
+        <div className="text-5xl text-left">
           <div className="flex gap-x-4">
             <div className="flex flex-col gap-y-4">
               <RiNextjsLine />
@@ -63,7 +63,7 @@ const PersonalInfo = () => {
           
 
 
-        </p>
+        </div>
       </div>
     </>
   )

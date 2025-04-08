@@ -48,7 +48,7 @@ const IconSphere = () => {
     // Wireframe sphere (optional visual guide)
     const sphere = new THREE.Mesh(
       new THREE.SphereGeometry(2.2, 20, 20),
-      new THREE.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: 0})
+      new THREE.MeshBasicMaterial({ wireframe: true, transparent: true, opacity: 0.08, color: "red"})
     );
     scene.add(sphere);
 
