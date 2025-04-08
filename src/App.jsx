@@ -81,14 +81,14 @@ function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <div className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
+      <div className={`mt-2vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex justify-center items-center flex-col pr-[2vw] mx-[4vw]'>
+          <div className='flex justify-center items-center flex-col mx-[4vw] scale-92'>
               <RotatingSphere />
           </div>
         )}
 
-        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mt-[-60vh] mb-[-60vh]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mx-[5vw]' : 'mx-[10vw] mb-4'}`}>
           <PersonalInfo />
         </div>
 

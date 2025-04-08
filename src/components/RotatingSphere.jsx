@@ -51,7 +51,7 @@ function Icon({ iconUrl, position }) {
 
 function SphereWithIcons() {
   const groupRef = useRef()
-  const sphereRadius = 15// Large sphere radius
+  const sphereRadius = 12// Large sphere radius
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime()
