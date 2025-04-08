@@ -8,7 +8,6 @@ import Headline from './components/Headline';
 import Projects from './components/Projects';
 import BrainCanvas from './components/BrainCanvas';
 import StreamerText from './components/StreamerText';
-import IconSphere from './components/IconSphere';
 import PersonalInfo from './components/PersonalInfo';
 import RotatingSphere from './components/RotatingSphere';
 

@@ -38,7 +38,7 @@ function Icon({ iconUrl, position }) {
   const texture = useTexture(iconUrl)
   return (
     <mesh position={position}>
-      <planeGeometry args={[2, 2]} /> {/* Icon size */}
+      <planeGeometry args={[3, 3]} /> {/* Icon size */}
       <meshBasicMaterial 
         map={texture} 
         transparent
