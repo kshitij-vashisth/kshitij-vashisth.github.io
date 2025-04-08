@@ -83,12 +83,12 @@ function App() {
       {/* Tech Stack Section */}
       <section className={`mt-[5vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw] mb-[-80vh]'>
+          <div className='flex h-[170vh] globe justify-center items-center flex-col w-[45vw] pr-[2vw] mx-[4vw] mb-[-60vh]'>
               <IconSphere />
           </div>
         )}
 
-        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mt-[-80vh] mb-[-80vh]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mt-[-60vh] mb-[-60vh]' : 'mx-[10vw] mb-4'}`}>
           <PersonalInfo />
         </div>
 
