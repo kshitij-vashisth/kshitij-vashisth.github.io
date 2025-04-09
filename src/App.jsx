@@ -93,7 +93,7 @@ function App() {
           </div>
         )}
 
-        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mx-[5vw]' : 'mx-[10vw] mb-4'}`}>
+        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mx-[5vw]' : 'mx-10 mb-4'}`}>
           <PersonalInfo />
         </div>
       </div>

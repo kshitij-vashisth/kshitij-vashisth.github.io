@@ -38,7 +38,7 @@ const Navbar = () => {
           target="_blank"
           className="text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
-          <FaGithub className="scale-200 hover:scale-300 z-100 curZur" />
+          <FaGithub className="scale-200 hover:scale-300 z-1000 curZur" />
         </a>
 
         {/* LinkedIn Link */}
@@ -47,7 +47,7 @@ const Navbar = () => {
           target="_blank"
           className=" px-4 py-1.5 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
-          <FaLinkedin className="scale-200 hover:scale-300 z-100 curZur" />
+          <FaLinkedin className="scale-200 hover:scale-300 z-1000 curZur" />
         </a>
 
         {/* Play/Pause Button */}
@@ -55,7 +55,7 @@ const Navbar = () => {
           className="text-[#20C20E]"
           onClick={handlePlayPause}
         >
-          {isPlaying ? <FaPause className="scale-200 hover:scale-300 z-100 curZur" /> : <FaPlay className="scale-200 hover:scale-300 z-100 curZur" />}
+          {isPlaying ? <FaPause className="scale-200 hover:scale-300 z-1000 curZur" /> : <FaPlay className="scale-200 hover:scale-300 z-100 curZur" />}
         </div>
 
       </ul>
@@ -63,7 +63,7 @@ const Navbar = () => {
         className={`text-sm font-light text-[#20C20E] transition-all duration-700 ease-in-out overflow-hidden rounded-2xl ${isPlaying ? "opacity-0" : " bg-black opacity-100 max-w-xs"
           }`}
       >
-        Click on <span className="text-white">Play</span> to Enter the Matrix!
+        Click on <span className="text-amber-100">Play</span> to Enter the Matrix!
       </div>
 
       {/* Hidden Audio Element */}

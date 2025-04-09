@@ -5,7 +5,7 @@ import { SiExpress, SiFlask, SiPytorch, SiTensorflow, SiPandas, SiScikitlearn, S
 const PersonalInfo = () => {
   return (
     <>
-      <div className="translucent-container p-6 custom-green rounded-2xl mr-[2vh] w-full my-4">
+      <div className="translucent-container p-6 custom-green rounded-2xl my-4 w-[90vw]">
 
         <p className="text-xl text-left text-white">
           Age
@@ -14,7 +14,7 @@ const PersonalInfo = () => {
           33
         </p>
       </div>
-      <div className="translucent-container p-6 custom-green rounded-2xl mr-[2vh] w-full my-4">
+      <div className="translucent-container p-6 custom-green rounded-2xl my-4 w-[90vw]">
 
         <p className="text-xl text-left text-white">
           Nationality
@@ -23,7 +23,7 @@ const PersonalInfo = () => {
           Indian
         </p>
       </div>
-      <div className="translucent-container p-6 custom-green rounded-2xl mr-[2vh] w-full  my-4">
+      <div className="translucent-container p-6 custom-green rounded-2xl w-[90vw] my-4">
 
         <p className="text-xl text-left text-white">
           Tech Stack
