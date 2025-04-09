@@ -5,7 +5,7 @@ const Intro = () => {
     return (
         <>
             {/* Intro Card */}
-            <div className="flex justify-center items-center w-[90vw]">
+            <div className="flex justify-center items-center w-[90%]">
                 {/* Card */}
                 <div className="translucent-container p-6 rounded-3xl">
                  
