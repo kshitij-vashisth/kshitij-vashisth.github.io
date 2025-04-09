@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="custom-green select-none w-[90%] rounded-4xl flex flex-col items-center text-center p-6 space-y-6">
+    <div className="custom-green select-none ml-[2vw] w-[90%] rounded-4xl flex flex-col items-center text-center p-6 space-y-6">
       
       <div className="translucent-container p-2">
       <p className="text-lg">Have a project in mind?</p>

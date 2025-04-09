@@ -101,7 +101,7 @@ function App() {
       <section className="h-auto flex items-center justify-center">
         {/* Footer */}
         <footer className='mt-auto'>
-          <Footer className="w-full flex justify-center" />
+          <Footer className="flex justify-center" />
         </footer>
       </section>
 
