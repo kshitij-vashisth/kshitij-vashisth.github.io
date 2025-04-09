@@ -13,7 +13,7 @@ const desc1 = "The urgency of transitioning to sustainable energy has made solar
 const desc2 = "KayVeeZ Careers Portal is a Flask-based web application that enables job seekers to explore job listings, learn about the company, and apply for positions. It features job listings, an about page, a RESTful API for job data, job details, and an application submission form. The project requires setting up a MySQL database with jobs and applications tables, and dependencies can be installed via pip. The app is powered by Flask for web functionality, SQLAlchemy for database interactions, and MySQL for data storage. The repository is available on GitHub, and the database can be hosted using platforms like Clever Cloud."
 const desc3 = "This Bash script automates updating multiple Git repositories by iterating through a list of directories, staging changes, committing updates, and pushing them to remote repositories. It prints status messages for each update and tracks exit codes to verify success. If any update fails, it identifies and reports the specific repository that encountered an issue, ensuring efficient version control across multiple projects."
 const desc4 = "BlockSnake is a challenging Unity-based twist on the classic snake game, featuring a minimalist blocky design, retro chiptune music, and fast-paced, skill-based gameplay. With precision movement and an unforgiving difficulty curve, it offers an addictive experience for players who love a real test. Can you master the movement and achieve a high score? 🚀🐍"
-const desc5 = "ToDoIt is a sleek and efficient To-Do List application built with Vite, React, and Tailwind CSS, designed to keep your tasks organized and manageable. This intuitive app allows you to add, edit, delete, and mark tasks as completed, while ensuring your data is saved persistently using localStorage. With features like filtering tasks and simple task management, it’s perfect for those who want a no-frills, yet powerful to-do list solution. Can you stay on top of all your tasks? ✔️📋"
+const desc5 = "iTask is a sleek and efficient To-Do List application built with Vite, React, and Tailwind CSS, designed to keep your tasks organized and manageable. This intuitive app allows you to add, edit, delete, and mark tasks as completed, while ensuring your data is saved persistently using localStorage. With features like filtering tasks and simple task management, it’s perfect for those who want a no-frills, yet powerful to-do list solution. Can you stay on top of all your tasks? ✔️📋"
 
 
 
@@ -23,7 +23,7 @@ const projects = [
   { title: "KVZCareers", description: desc2, image: project2, link: "https://kayveez-jobz.onrender.com" },
   { title: "Git Automation", description: desc3, image: project3, link: "https://github.com/KayVeeZ/learning_bash/blob/main/git_up" },
   { title: "BlockSnake", description: desc4, image: project4, link: "https://kshitijvashisth.itch.io/snake" },
-  { title: "ToDoIt", description: desc5, image: project5, link: "https://kayveez.github.io/todoListReactApp/" }
+  { title: "iTask", description: desc5, image: project5, link: "https://kayveez.github.io/todoListReactApp/" }
 ];
 
 const Projects = () => {
