@@ -3,8 +3,8 @@ import React from 'react'
 const Headline = () => {
     return (
         <>
-            <div className="text-2xl flex space-x-4 space-y-6">
-                <p className='text-4xl'>👋</p>
+            <div className="flex space-x-4 space-y-6">
+                <p>👋</p>
                 <div className="bg-[#20C20E] text-white px-4 rounded-full z-100000 hover:bg-[#1A9A0B]">
                     I'M
                 </div>
