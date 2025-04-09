@@ -56,7 +56,14 @@ const Navbar = () => {
         >
           {isPlaying ? <FaPause className="scale-200 hover:scale-300 z-100 curZur" /> : <FaPlay className="scale-200 hover:scale-300 z-100 curZur" />}
         </div>
+
       </ul>
+      <div
+        className={`text-sm font-light text-[#20C20E] transition-all duration-700 ease-in-out overflow-hidden rounded-2xl ${isPlaying ? "opacity-0" : " bg-black opacity-100 max-w-xs"
+          }`}
+      >
+        Click on <span className="text-white">Play</span> to Enter the Matrix!
+      </div>
 
       {/* Hidden Audio Element */}
       <audio ref={audioRef} src={backgroundMusic} loop style={{ display: 'none' }} />
