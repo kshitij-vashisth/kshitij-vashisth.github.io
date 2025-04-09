@@ -9,7 +9,7 @@ const Footer = () => {
 
         <a
           href="mailto:kshitijvashisth@gmail.com"
-          className="text-[1.875rem] inline-block mt-5 mb-4 hover:underline w-[95%]"
+          className="text-2xl text-white hover:text-[#1A9A0B] inline-block mt-5 mb-4 hover:underline"
         >
           kshitijvashisth@gmail.com
         </a>
