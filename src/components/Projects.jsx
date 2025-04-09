@@ -9,7 +9,7 @@ import project4 from "../assets/projectImages/blockSnake.png";
 
 // project descriptions
 const desc1 = "The urgency of transitioning to sustainable energy has made solar energy a key solution due to its abundance and environmental benefits. Solar cells are crucial in this shift, offering renewable, clean, cost-effective, and energy-independent power. However, improving solar cell efficiency requires discovering and optimizing suitable materials, a process traditionally slow and labor-intensive. Machine learning (ML) accelerates this by predicting promising materials based on large datasets, optimizing properties, and discovering novel compositions. Leveraging ML in solar cell research can drive innovation and efficiency. To contribute, I led a team, that developed an ML model that predicts stable perovskite materials for solar cells, with the model available on GitHub and deployed online."
-const desc2 ="KayVeeZ Careers Portal is a Flask-based web application that enables job seekers to explore job listings, learn about the company, and apply for positions. It features job listings, an about page, a RESTful API for job data, job details, and an application submission form. The project requires setting up a MySQL database with jobs and applications tables, and dependencies can be installed via pip. The app is powered by Flask for web functionality, SQLAlchemy for database interactions, and MySQL for data storage. The repository is available on GitHub, and the database can be hosted using platforms like Clever Cloud."
+const desc2 = "KayVeeZ Careers Portal is a Flask-based web application that enables job seekers to explore job listings, learn about the company, and apply for positions. It features job listings, an about page, a RESTful API for job data, job details, and an application submission form. The project requires setting up a MySQL database with jobs and applications tables, and dependencies can be installed via pip. The app is powered by Flask for web functionality, SQLAlchemy for database interactions, and MySQL for data storage. The repository is available on GitHub, and the database can be hosted using platforms like Clever Cloud."
 const desc3 = "This Bash script automates updating multiple Git repositories by iterating through a list of directories, staging changes, committing updates, and pushing them to remote repositories. It prints status messages for each update and tracks exit codes to verify success. If any update fails, it identifies and reports the specific repository that encountered an issue, ensuring efficient version control across multiple projects."
 const desc4 = "BlockSnake is a challenging Unity-based twist on the classic snake game, featuring a minimalist blocky design, retro chiptune music, and fast-paced, skill-based gameplay. With precision movement and an unforgiving difficulty curve, it offers an addictive experience for players who love a real test. Can you master the movement and achieve a high score? 🚀🐍"
 
@@ -36,13 +36,13 @@ const Projects = () => {
         e.preventDefault();
       }
     };
-    
+
     if (isHovered) {
       window.addEventListener("wheel", handleWheel, { passive: false });
     } else {
       window.removeEventListener("wheel", handleWheel);
     }
-    
+
     return () => window.removeEventListener("wheel", handleWheel);
   }, [isHovered]);
 
@@ -72,8 +72,8 @@ const Projects = () => {
   };
 
   return (
-    <div 
-      className="projects-container" 
+    <div
+      className="projects-container"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onWheel={(e) => {
@@ -98,9 +98,9 @@ const Projects = () => {
           const isActive = selectedProject === project;
           const isHovering = hoveredIndex === index;
           return (
-            <div 
-              key={index} 
-              className={`project-slide rounded-2xl transition-transform duration-500 ease-out ${isHovering ? 'scale-120' : 'scale-100'}`} 
+            <div
+              key={index}
+              className={`project-slide rounded-2xl transition-transform duration-500 ease-out ${isHovering ? 'scale-120' : 'scale-100'}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => setSelectedProject(project)}
@@ -120,19 +120,22 @@ const Projects = () => {
 
       {selectedProject && (
         <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div 
-            className="modal-content expanded bg-black p-6 max-w-2xl mx-auto rounded-lg shadow-lg overflow-auto max-h-[80vh]" 
-            onClick={(e) => e.stopPropagation()} 
+          <div
+            className="modal-content expanded bg-black opacity-75 backdrop-blur-md p-6 max-w-2xl mx-auto rounded-lg shadow-lg overflow-auto max-h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
             ref={modalRef}
             onWheel={(e) => e.stopPropagation()} // Prevent background scroll
           >
-            <img src={selectedProject.image} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" />
+            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer"><img src={selectedProject.image} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" /></a>
             <h3 className="text-3xl text-[#20C20E] font-bold mt-4">{selectedProject.title}</h3>
             <p className="mt-2 text-[#20C20E] text-lg text-justify">{selectedProject.description}</p>
-            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-block text-[#20C20E] hover:text-[#1A9A0B] hover:underline">Link to {selectedProject.title}</a><br/>
-            <button className="modal-close px-4 py-2 mt-6 rounded-lg slide-in-fade" onClick={() => setSelectedProject(null)}>
-              <span className="curZur">Close</span>
-              </button>
+            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-block text-2xl text-white hover:text-[#20C20E] hover:custom-outline-white hover:underline">Link to {selectedProject.title}</a><br />
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="z-1000 curZur absolute top-4 right-4 bg-[#20C20E] px-3 py-2 rounded-full text-black hover:text-red-600 text-2xl font-bold hover:bg-[#1A9A0B] focus:outline-none hover:border-2 hover:border-solid hover:border-red-600"
+            >
+              ×
+            </button>
           </div>
         </div>
       )}
