@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaPlay, FaPause } from "react-icons/fa";
-import backgroundMusic from '../assets/music/background-music.mp3'; // import the music
+// import backgroundMusic from '../assets/music/background-music.mp3'; // import the music
+import backgroundMusic from '../assets/music/bgm-1.mp3'; // import the music
 
 const Navbar = () => {
   const [isPlaying, setIsPlaying] = useState(false);
