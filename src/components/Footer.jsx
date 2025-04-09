@@ -22,7 +22,8 @@ const Footer = () => {
       </div>
 
       <div className="translucent-container p-2">
-        <p className="text-muted-foreground">Copyright © 2025 Kshitij Vashisth</p>
+        <p className="text-muted-foreground">Design by: Kshitij Vashisth © 2025 </p>
+        <p className="text-muted-foreground">All copyrighted properties belong to rightful owners. </p>
       </div>
     </div>
   );
