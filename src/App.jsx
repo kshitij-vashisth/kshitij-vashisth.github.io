@@ -98,10 +98,10 @@ function App() {
         </div>
       </div>
 
-      <section className="h-auto flex items-center justify-center">
+      <section className=" text-[#20C20E] flex items-center justify-center">
         {/* Footer */}
-        <footer className='mt-auto'>
-          <Footer className="flex justify-center" />
+        <footer>
+          <Footer />
         </footer>
       </section>
 
