@@ -129,7 +129,7 @@ const Projects = () => {
             ref={modalRef}
             onWheel={(e) => e.stopPropagation()} // Prevent background scroll
           >
-            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer"><img src={selectedProject.image} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" /></a>
+            <img src={selectedProject.image} onClick={() => window.open(selectedProject.link, "_blank")} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" />
             <h3 className="text-3xl text-[#20C20E] font-bold mt-4">{selectedProject.title}</h3>
             <p className="mt-2 text-[#20C20E] text-lg text-justify">{selectedProject.description}</p>
             <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-block text-2xl text-white hover:text-[#20C20E] hover:custom-outline-white hover:underline">Link to {selectedProject.title}</a><br />
