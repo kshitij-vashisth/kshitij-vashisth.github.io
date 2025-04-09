@@ -35,26 +35,26 @@ const Navbar = () => {
         <a
           href="https://github.com/KayVeeZ"
           target="_blank"
-          className="scale-200 hover:scale-300 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
+          className="text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
-          <FaGithub className="text-[30px] curZur" />
+          <FaGithub className="scale-200 hover:scale-300 z-100 curZur" />
         </a>
 
         {/* LinkedIn Link */}
         <a
           href="https://linkedin.com/in/kshitijvashisth"
           target="_blank"
-          className="scale-200 hover:scale-300 px-4 py-1.5 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
+          className=" px-4 py-1.5 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
-          <FaLinkedin className="text-[30px] curZur" />
+          <FaLinkedin className="scale-200 hover:scale-300 z-100 curZur" />
         </a>
 
         {/* Play/Pause Button */}
         <div
-          className="scale-200 hover:scale-300 text-[30px] text-[#20C20E]"
+          className="text-[#20C20E]"
           onClick={handlePlayPause}
         >
-          {isPlaying ? <FaPause className="curZur" /> : <FaPlay className="curZur" />}
+          {isPlaying ? <FaPause className="scale-200 hover:scale-300 z-100 curZur" /> : <FaPlay className="scale-200 hover:scale-300 z-100 curZur" />}
         </div>
       </ul>
 

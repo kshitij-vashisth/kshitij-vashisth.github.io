@@ -99,4 +99,29 @@
   /* Back to Black */
 }
 
+/* Scrollbar */
+/* Scrollbar Styles for WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  background: #111827; /* dark background */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #20C20E; /* Tailwind's emerald-500 */
+  border-radius: 10px;
+  border: 2px solid #111827;
+}
+
+/* Optional: Scrollbar corner when both scrollbars appear */
+::-webkit-scrollbar-corner {
+  background: #111827;
+}
+
+/* Firefox Scrollbar Styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #20C20E #111827;
+}
