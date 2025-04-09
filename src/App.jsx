@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaPlay, FaPause } from 'react-icons/fa'; // Import the icons from react-icons
+import { FaPlay, FaPause } from 'react-icons/fa';
 import './App.css';
 import './Cursors.css';
 import Navbar from './components/Navbar';
@@ -11,53 +11,48 @@ import BrainCanvas from './components/BrainCanvas';
 import StreamerText from './components/StreamerText';
 import PersonalInfo from './components/PersonalInfo';
 import RotatingSphere from './components/RotatingSphere';
-
-// Import your audio file
 import backgroundMusic from './assets/music/background-music.mp3';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024); // Checking if the screen is larger than 1024px
-  const [isPlaying, setIsPlaying] = useState(true); // State to track if the music is playing
-  const audioRef = useRef(null); // Reference to control the audio
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null); // ✅ declare this before useEffect
 
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 300); // Small delay for smooth effect
+    setTimeout(() => setIsVisible(true), 300);
 
-    // Resize listener
     const handleResize = () => {
-      setIsDesktop(window.innerWidth > 1024); // Adjust the condition if needed
+      setIsDesktop(window.innerWidth > 1024);
     };
 
     window.addEventListener('resize', handleResize);
 
-    // Ensure audio is playing initially if it is set to true
-    if (audioRef.current && isPlaying) {
-      audioRef.current.play(); // Start playing the audio
-    } else if (audioRef.current && !isPlaying) {
-      audioRef.current.pause(); // Pause the audio if isPlaying is false
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch((err) => {
+          console.warn('Play failed:', err);
+        });
+      } else {
+        audioRef.current.pause();
+      }
     }
 
     return () => {
       if (audioRef.current) {
-        audioRef.current.pause();    // Pause the audio when the component unmounts
+        audioRef.current.pause();
       }
-      window.removeEventListener('resize', handleResize); // Cleanup on unmount
+      window.removeEventListener('resize', handleResize);
     };
-  }, [isPlaying]); // This useEffect will run when `isPlaying` state changes
-
-  // Toggle play/pause state
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying); // Toggle the play state
-  };
+  }, [isPlaying]);
 
   return (
     <div
       className={`select-none font-custom flex flex-col min-h-screen justify-between text-white transition-all duration-700 ease-in ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div className="flex flex-col justify-center items-center">
-        {/* Navbar */}
-        <Navbar />
+      <div className="flex justify-center items-center">
+        {/* Pass audio control state to Navbar */}
+        <Navbar isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
       </div>
 
       {/* Main Section */}
@@ -110,17 +105,8 @@ function App() {
         </footer>
       </section>
 
-      {/* Hidden Audio Player */}
-      <audio ref={audioRef} src={backgroundMusic} autoPlay loop style={{ display: 'none' }} />
-
-      {/* Play/Pause Button */}
-      <div className="play-pause-button curZur" onClick={handlePlayPause}>
-        {isPlaying ? (
-          <FaPause size={30} color="#20C20E" />
-        ) : (
-          <FaPlay size={30} color="#20C20E" />
-        )}
-      </div>
+      {/* Hidden Audio Element */}
+      <audio ref={audioRef} src={backgroundMusic} loop style={{ display: 'none' }} />
 
     </div>
   );
