@@ -35,7 +35,7 @@ const Navbar = () => {
         <a
           href="https://github.com/KayVeeZ"
           target="_blank"
-          className="scale-200 hover:scale-300 px-4 py-1.5 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
+          className="scale-200 hover:scale-300 text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
           <FaGithub className="text-[30px] curZur" />
         </a>
@@ -51,10 +51,10 @@ const Navbar = () => {
 
         {/* Play/Pause Button */}
         <div
-          className="scale-200 hover:scale-300 text-[30px] text-[#20C20E] curZur"
+          className="scale-200 hover:scale-300 text-[30px] text-[#20C20E]"
           onClick={handlePlayPause}
         >
-          {isPlaying ? <FaPause /> : <FaPlay />}
+          {isPlaying ? <FaPause className="curZur" /> : <FaPlay className="curZur" />}
         </div>
       </ul>
 
