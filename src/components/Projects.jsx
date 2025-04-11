@@ -15,15 +15,12 @@ const desc3 = "This Bash script automates updating multiple Git repositories by 
 const desc4 = "BlockSnake is a challenging Unity-based twist on the classic snake game, featuring a minimalist blocky design, retro chiptune music, and fast-paced, skill-based gameplay. With precision movement and an unforgiving difficulty curve, it offers an addictive experience for players who love a real test. Can you master the movement and achieve a high score? 🚀🐍"
 const desc5 = "iTask is a sleek and efficient To-Do List application built with Vite, React, and Tailwind CSS, designed to keep your tasks organized and manageable. This intuitive app allows you to add, edit, delete, and mark tasks as completed, while ensuring your data is saved persistently using localStorage. With features like filtering tasks and simple task management, it’s perfect for those who want a no-frills, yet powerful to-do list solution. Can you stay on top of all your tasks? ✔️📋"
 
-
-
-
 const projects = [
-  { title: "Solarly", description: desc1, image: project1, link: "https://predict-solar-cell-materials.onrender.com/" },
-  { title: "KVZCareers", description: desc2, image: project2, link: "https://kayveez-jobz.onrender.com" },
-  { title: "Git Automation", description: desc3, image: project3, link: "https://github.com/KayVeeZ/learning_bash/blob/main/git_up" },
-  { title: "BlockSnake", description: desc4, image: project4, link: "https://kshitijvashisth.itch.io/snake" },
-  { title: "iTask", description: desc5, image: project5, link: "https://kayveez.github.io/todoListReactApp/" }
+  { title: "Solarly", description: desc1, image: project1, link: "https://predict-solar-cell-materials.onrender.com/", isUpcoming: false },
+  { title: "KVZCareers", description: desc2, image: project2, link: "https://kayveez-jobz.onrender.com", isUpcoming: false},
+  { title: "Git Automation", description: desc3, image: project3, link: "https://github.com/KayVeeZ/learning_bash/blob/main/git_up", isUpcoming: false },
+  { title: "BlockSnake", description: desc4, image: project4, link: "https://kshitijvashisth.itch.io/snake", isUpcoming: false },
+  { title: "iTask", description: desc5, image: project5, link: "https://kayveez.github.io/todoListReactApp/", isUpcoming: false }
 ];
 
 const Projects = () => {
@@ -103,11 +100,16 @@ const Projects = () => {
           return (
             <div
               key={index}
-              className={`project-slide rounded-2xl transition-transform duration-500 ease-out ${isHovering ? 'scale-120' : 'scale-100'}`}
+              className={`project-slide rounded-2xl relative transition-transform duration-500 ease-out ${isHovering ? 'scale-120' : 'scale-100'}`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               onClick={() => setSelectedProject(project)}
             >
+              {project.isUpcoming && (
+                <div className="absolute top-2 left-2 px-2 py-1 bg-white text-black font-bold text-sm rounded z-10">
+                  <span className='flash-text'>Upcoming Project</span>
+                </div>
+              )}
               <img
                 src={project.image}
                 alt={project.title}
@@ -130,7 +132,14 @@ const Projects = () => {
             onWheel={(e) => e.stopPropagation()} // Prevent background scroll
           >
             <img src={selectedProject.image} onClick={() => window.open(selectedProject.link, "_blank")} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" />
-            <h3 className="text-3xl text-[#20C20E] font-bold mt-4">{selectedProject.title}</h3>
+            <h3 className="text-3xl text-[#20C20E] font-bold mt-4 flex items-center gap-3">
+              {selectedProject.title}
+              {selectedProject.isUpcoming && (
+                <span className="text-white bg-[#20C20E] px-2 py-1 rounded-md text-base font-semibold animate-pulse">
+                  Upcoming Project
+                </span>
+              )}
+            </h3>
             <p className="mt-2 text-[#20C20E] text-lg text-justify">{selectedProject.description}</p>
             <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-block text-2xl text-white hover:text-[#20C20E] hover:custom-outline-white hover:underline">Link to {selectedProject.title}</a><br />
             <button

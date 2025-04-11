@@ -82,6 +82,10 @@
   animation: colorSwitch 1.2s infinite linear;
 }
 
+.flash-text {
+  animation: colorSwitch 1.2s infinite linear;
+}
+
 @keyframes colorSwitch {
   0% {
     color: #000;
@@ -125,4 +129,14 @@
 * {
   scrollbar-width: thin;
   scrollbar-color: #20C20E #111827;
+}
+
+/* flashing in carousel */
+@keyframes pulseFlash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse {
+  animation: pulseFlash 1s infinite;
 }
