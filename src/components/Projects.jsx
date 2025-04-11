@@ -20,7 +20,7 @@ const desc7 = "iTask is a sleek and efficient To-Do List application built with 
 const projects = [
   { title: "GloNeuro", description: desc2, image: project2, link: "https://gloneuro.org/", isUpcoming: true },
   { title: "Solarly", description: desc3, image: project3, link: "https://predict-solar-cell-materials.onrender.com/", isUpcoming: false },
-  { title: "KVZCareers", description: desc4, image: project4, link: "https://kayveez-jobz.onrender.com", isUpcoming: false},
+  { title: "KVZCareers", description: desc4, image: project4, link: "https://kayveez-jobz.onrender.com", isUpcoming: false },
   { title: "Git Automation", description: desc5, image: project5, link: "https://github.com/KayVeeZ/learning_bash/blob/main/git_up", isUpcoming: false },
   { title: "BlockSnake", description: desc6, image: project6, link: "https://kshitijvashisth.itch.io/snake", isUpcoming: false },
   { title: "iTask", description: desc7, image: project7, link: "https://kayveez.github.io/todoListReactApp/", isUpcoming: false }
@@ -134,7 +134,19 @@ const Projects = () => {
             ref={modalRef}
             onWheel={(e) => e.stopPropagation()} // Prevent background scroll
           >
-            <img src={selectedProject.image} onClick={() => window.open(selectedProject.link, "_blank")} alt={selectedProject.title} className="curZur modal-image w-full h-auto rounded-lg" />
+
+            <img
+              src={selectedProject.image}
+              onClick={() => {
+                if (selectedProject.link) {
+                  window.open(selectedProject.link, "_blank");
+                }
+              }}
+              alt={selectedProject.title}
+              className={`modal-image w-full h-auto rounded-lg ${selectedProject.link ? 'curZur cursor-pointer' : 'cursor-not-allowed opacity-60'}`}
+            />
+
+
             <h3 className="text-3xl text-[#20C20E] font-bold mt-4 flex items-center gap-3">
               {selectedProject.title}
               {selectedProject.isUpcoming && (
@@ -144,7 +156,24 @@ const Projects = () => {
               )}
             </h3>
             <p className="mt-2 text-[#20C20E] text-lg text-justify">{selectedProject.description}</p>
-            <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="inline-block text-2xl text-white hover:text-[#20C20E] hover:custom-outline-white hover:underline">Link to {selectedProject.title}</a><br />
+
+            {selectedProject.link ? (
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-2xl text-white hover:text-[#20C20E] hover:custom-outline-white hover:underline"
+              >
+                Link to {selectedProject.title}
+              </a>
+            ) : (
+              <span className="inline-block text-2xl text-gray-500 cursor-not-allowed opacity-50">
+                Link not available
+              </span>
+            )}
+
+
+            <br />
             <button
               onClick={() => setSelectedProject(null)}
               className="z-1000 curZur absolute top-4 right-4 bg-[#20C20E] px-3 py-2 rounded-full text-black hover:text-red-600 text-2xl font-bold hover:bg-[#1A9A0B] focus:outline-none hover:border-2 hover:border-solid hover:border-red-600"
