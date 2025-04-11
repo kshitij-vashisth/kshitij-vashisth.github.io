@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import '../ProjectCarousel.css';
 
+import project1 from "../assets/projectImages/rudraDream.jpg";
 import project2 from "../assets/projectImages/gloNeuro.png";
 import project3 from "../assets/projectImages/solarly.png";
 import project4 from "../assets/projectImages/kvzCareers.png";
@@ -10,6 +11,7 @@ import project6 from "../assets/projectImages/blockSnake.png";
 import project7 from "../assets/projectImages/toDoListCreator.png";
 
 // project descriptions
+const desc1 = "Rudra's Dream is a side-scrolling brawler where players battle endless waves of enemies in a fast-paced, action-packed arena. The game features skill-based melee combat, weapon variety, and light RPG elements that let players level up, unlock new abilities, and gain powerful upgrades mid-run. With responsive controls, escalating difficulty, and a focus on timing and strategy, Rudra's Dream challenges players to survive as long as possible while mastering combos, dodging attacks, and choosing the right powerups to shape their playstyle. It's an intense, replayable experience built for fans of raw, satisfying combat.";
 const desc2 = "The Global Neuro Foundation advances neurosurgical education worldwide through training, collaboration, and knowledge sharing. Their website, gloneuro.org, serves as a hub for global neurosurgical professionals, offering access to educational courses, case studies, research, and events. To support this mission, I was selected to lead the full-stack redevelopment of the site using a modern technology stack. The goal is to enhance performance, usability, and security while introducing features like interactive modules, real-time tools, and personalized dashboards. This renovation will provide a more dynamic and scalable platform to better serve the global neurosurgical community."
 const desc3 = "The urgency of transitioning to sustainable energy has made solar energy a key solution due to its abundance and environmental benefits. Solar cells are crucial in this shift, offering renewable, clean, cost-effective, and energy-independent power. However, improving solar cell efficiency requires discovering and optimizing suitable materials, a process traditionally slow and labor-intensive. Machine learning (ML) accelerates this by predicting promising materials based on large datasets, optimizing properties, and discovering novel compositions. Leveraging ML in solar cell research can drive innovation and efficiency. To contribute, I led a team, that developed an ML model that predicts stable perovskite materials for solar cells, with the model available on GitHub and deployed online."
 const desc4 = "KayVeeZ Careers Portal is a Flask-based web application that enables job seekers to explore job listings, learn about the company, and apply for positions. It features job listings, an about page, a RESTful API for job data, job details, and an application submission form. The project requires setting up a MySQL database with jobs and applications tables, and dependencies can be installed via pip. The app is powered by Flask for web functionality, SQLAlchemy for database interactions, and MySQL for data storage. The repository is available on GitHub, and the database can be hosted using platforms like Clever Cloud."
@@ -18,6 +20,7 @@ const desc6 = "BlockSnake is a challenging Unity-based twist on the classic snak
 const desc7 = "iTask is a sleek and efficient To-Do List application built with Vite, React, and Tailwind CSS, designed to keep your tasks organized and manageable. This intuitive app allows you to add, edit, delete, and mark tasks as completed, while ensuring your data is saved persistently using localStorage. With features like filtering tasks and simple task management, it’s perfect for those who want a no-frills, yet powerful to-do list solution. Can you stay on top of all your tasks? ✔️📋"
 
 const projects = [
+  { title: "Rudra's Dream", description: desc1, image: project1, link: null, isUpcoming: true },
   { title: "GloNeuro", description: desc2, image: project2, link: "https://gloneuro.org/", isUpcoming: true },
   { title: "Solarly", description: desc3, image: project3, link: "https://predict-solar-cell-materials.onrender.com/", isUpcoming: false },
   { title: "KVZCareers", description: desc4, image: project4, link: "https://kayveez-jobz.onrender.com", isUpcoming: false },
