@@ -57,7 +57,7 @@ const Footer = () => {
               title="Resume"
               className="w-full h-full rounded-lg custom-scrollbar"
               allow="fullscreen"
-            ></iframe>
+            />
 
             <button
               onClick={() => setIsResumeOpen(false)}

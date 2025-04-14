@@ -162,5 +162,5 @@
 /* Optional: Firefox support */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #20C20E #1a1a1a;
+  scrollbar-color: #20C20E;
 }
