@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaPlay, FaPause } from 'react-icons/fa';
 import './App.css';
 import './Cursors.css';
 import Navbar from './components/Navbar';
@@ -65,7 +64,7 @@ function App() {
         )}
 
         {/* Right column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[5vw] text-6xl' : 'mb-4 mx-10 text-[27px]'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[5vw] text-[54px]' : 'mb-4 mx-10 text-[27px]'}`}>
           <Headline />
           <Intro />
         </div>
