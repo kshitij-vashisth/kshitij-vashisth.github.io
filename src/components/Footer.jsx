@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf'; // Adjust if needed
 
 const Footer = () => {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (isResumeOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isResumeOpen]);
+
   return (
     <div className="flex flex-col items-center text-center p-6 space-y-6">
-
       <div className="translucent-container p-2">
         <p className="text-lg">Have a project in mind?</p>
 
@@ -13,18 +28,46 @@ const Footer = () => {
         >
           kshitijvashisth@gmail.com
         </a>
-        <p><a
-          href="https://drive.google.com/file/d/1arUBFumXGHY-PhNOnrcTE-N9g_H9q5kB/view?usp=sharing" target="_blank" className='hover:underline'
-        >
-          Link to Resume
-        </a></p>
 
+        <p>
+          <button
+            onClick={() => setIsResumeOpen(true)}
+            className="hover:underline"
+          >
+            Click to View Resume!
+          </button>
+        </p>
       </div>
 
       <div className="translucent-container w-[95%]">
         <p className="text-muted-foreground">Design by: Kshitij Vashisth © 2025 </p>
         <p className="text-muted-foreground">All copyrighted properties belong to rightful owners. </p>
       </div>
+
+      {isResumeOpen && (
+        <div className="modal-overlay" onClick={() => setIsResumeOpen(false)}>
+          <div
+            className="modal-content expanded bg-black opacity-75 backdrop-blur-md p-6 max-w-5xl w-[90vw] h-[90vh] mx-auto rounded-lg shadow-lg overflow-hidden relative"
+            onClick={(e) => e.stopPropagation()}
+            ref={modalRef}
+            onWheel={(e) => e.stopPropagation()}
+          >
+            <iframe
+              src={resumePdf}
+              title="Resume"
+              className="w-full h-full rounded-lg custom-scrollbar"
+              allow="fullscreen"
+            ></iframe>
+
+            <button
+              onClick={() => setIsResumeOpen(false)}
+              className="z-1000 curZur absolute top-4 right-0 bg-[#20C20E] px-3 py-2 rounded-full text-black hover:text-red-600 text-2xl font-bold hover:bg-[#1A9A0B] focus:outline-none hover:border-2 hover:border-solid hover:border-red-600"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
