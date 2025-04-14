@@ -13,5 +13,5 @@ export default defineConfig({
     '**/*.gltf',
     '**/*.bin',
   ],
-  base: "/KshitijVashisth",
+  base: "/",
 })
