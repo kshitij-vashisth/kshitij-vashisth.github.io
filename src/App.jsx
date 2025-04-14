@@ -56,18 +56,23 @@ function App() {
 
       {/* Main Section */}
       <section className={`mt-[5vh] h-auto items-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
-        {/* Left column with BrainCanvas (Only on Desktop) */}
-        {isDesktop && (
-          <div className="h-[45vh] ml-[5vw] rounded-3xl translucent-container mt-10 mb-5 mr-8 flex-grow flex flex-col justify-center items-center custom-green select-none">
-            <BrainCanvas />
-          </div>
-        )}
-
         {/* Right column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[5vw] text-[54px]' : 'mb-4 mx-10 text-[27px]'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[4vw] text-[54px]' : 'mb-4 mx-10 text-[27px]'}`}>
           <Headline />
           <Intro />
         </div>
+        
+        {/* Left column with BrainCanvas (Only on Desktop) */}
+        <div
+  className={`h-[45vh] rounded-3xl translucent-container flex-grow flex flex-col justify-center items-center ${
+    isDesktop ? 'mx-[4vw] mt-10 mb-5' : 'mb-4 mx-10'
+  }`}
+>
+
+            <BrainCanvas />
+          </div>
+
+        
       </section>
 
       {/* Other sections as before */}
