@@ -24,9 +24,9 @@ const projects = [
   { title: "GloNeuro", description: desc2, image: project2, link: "https://gloneuro.org/", isUpcoming: true },
   { title: "Solarly", description: desc3, image: project3, link: "https://predict-solar-cell-materials.onrender.com/", isUpcoming: false },
   { title: "KVZCareers", description: desc4, image: project4, link: "https://kayveez-jobz.onrender.com", isUpcoming: false },
-  { title: "Git Automation", description: desc5, image: project5, link: "https://github.com/KayVeeZ/learning_bash/blob/main/git_up", isUpcoming: false },
+  { title: "Git Automation", description: desc5, image: project5, link: "https://github.com/kshitij-vashisth/learning_bash/blob/main/git_up", isUpcoming: false },
   { title: "BlockSnake", description: desc6, image: project6, link: "https://kshitijvashisth.itch.io/snake", isUpcoming: false },
-  { title: "iTask", description: desc7, image: project7, link: "https://kayveez.github.io/todoListReactApp/", isUpcoming: false }
+  { title: "iTask", description: desc7, image: project7, link: "https://kshitij-vashisth.github.io/todoListReactApp/", isUpcoming: false }
 ];
 
 const Projects = () => {
