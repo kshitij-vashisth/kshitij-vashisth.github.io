@@ -34,7 +34,7 @@ const Navbar = () => {
       <ul className="group flex items-center justify-center gap-4 px-5 py-5 bg-black rounded-2xl">
         {/* GitHub Link */}
         <a
-          href="https://github.com/KayVeeZ"
+          href="https://github.com/kshitij-vashisth"
           target="_blank"
           className="text-sm font-light text-[#20C20E] transition-all duration-300 hover:text-[#1A9A0B] rounded-2xl"
         >
