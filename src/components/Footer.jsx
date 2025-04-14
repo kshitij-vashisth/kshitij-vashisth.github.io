@@ -39,7 +39,7 @@ const Footer = () => {
         </p>
       </div>
 
-      <div className="translucent-container w-[95%] text-[10px]">
+      <div className="translucent-container w-[95%] text-[12px]">
         <p className="text-muted-foreground">Design by: Kshitij Vashisth © 2025 </p>
         <p className="text-muted-foreground">All copyrighted properties belong to rightful owners. </p>
       </div>
