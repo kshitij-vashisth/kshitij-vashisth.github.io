@@ -61,18 +61,17 @@ function App() {
           <Headline />
           <Intro />
         </div>
-        
+
         {/* Left column with BrainCanvas (Only on Desktop) */}
         <div
-  className={`h-[45vh] rounded-3xl translucent-container flex-grow flex flex-col justify-center items-center ${
-    isDesktop ? 'mx-[4vw] mt-10 mb-5' : 'mb-4 mx-10'
-  }`}
->
+          className={`h-[45vh] rounded-3xl translucent-container flex-grow flex flex-col justify-center items-center ${isDesktop ? 'mx-[4vw] my-5' : 'my-4 mx-10'
+            }`}
+        >
 
-            <BrainCanvas />
-          </div>
+          <BrainCanvas />
+        </div>
 
-        
+
       </section>
 
       {/* Other sections as before */}
@@ -90,9 +89,9 @@ function App() {
       </section>
 
       {/* Tech Stack Section */}
-      <div className={`mt-2vh] items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
+      <div className={`items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex justify-center items-center flex-col mx-[4vw] scale-92'>
+          <div className='flex justify-center items-center flex-col mx-[4vw] scale-110'>
             <RotatingSphere />
           </div>
         )}
