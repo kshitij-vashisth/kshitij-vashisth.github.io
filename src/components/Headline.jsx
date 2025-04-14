@@ -9,7 +9,7 @@ const Headline = () => {
                     I'M
                 </div>
                 <p className="custom-outline-white">KSHITIJ</p>
-                <p className="text-white custom-outline-green">VASHISTH<span className='text-[#20C20E]'>!</span></p>
+                <p className="text-white custom-outline-green">VASHISTH<span className='text-[#20C20E] custom-outline-white'>!</span></p>
             </div>
         </>
     )
