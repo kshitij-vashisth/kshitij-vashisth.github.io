@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <nav className="z-50 inline-block w-fit mt-4">
-      <ul className="group flex items-center justify-center gap-4 px-5 py-5 bg-black rounded-2xl">
+      <ul className="group flex items-center justify-center gap-4 px-5 py-5 bg-black">
         {/* GitHub Link */}
         <a
           href="https://github.com/kshitij-vashisth"
@@ -60,7 +60,7 @@ const Navbar = () => {
 
       </ul>
       <div
-        className={`text-sm font-light text-[#20C20E] transition-all duration-700 ease-in-out overflow-hidden rounded-2xl ${isPlaying ? "opacity-0" : " bg-black opacity-100 max-w-xs"
+        className={`text-sm font-light text-[#20C20E] transition-all duration-700 ease-in-out overflow-hidden ${isPlaying ? "opacity-0" : " bg-black opacity-100 max-w-xs"
           }`}
       >
         Click on <span className="text-amber-100">Play</span> to Enter the Matrix!
