@@ -24,7 +24,7 @@ const Footer = () => {
 
         <a
           href="mailto:kshitijvashisth@gmail.com"
-          className="text-2xl text-white hover:text-[#1A9A0B] inline-block mt-5 mb-4 hover:underline"
+          className="text-xl text-white hover:text-[#1A9A0B] inline-block mt-5 mb-4 hover:underline"
         >
           kshitijvashisth@gmail.com
         </a>
@@ -39,7 +39,7 @@ const Footer = () => {
         </p>
       </div>
 
-      <div className="translucent-container w-[95%]">
+      <div className="translucent-container w-[95%] text-[10px]">
         <p className="text-muted-foreground">Design by: Kshitij Vashisth © 2025 </p>
         <p className="text-muted-foreground">All copyrighted properties belong to rightful owners. </p>
       </div>
