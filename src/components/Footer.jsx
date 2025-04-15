@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf'; // Adjust if needed
+import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf';
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -35,7 +35,7 @@ const Footer = () => {
         <p>
           {isMobile ? (
             <a
-              href={resumePdf}
+              href="/kshitij_vashisth_cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline hover:text-[#1A9A0B]"
