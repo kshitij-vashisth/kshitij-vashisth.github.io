@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf';
+import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf'; // Adjust if needed
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
