@@ -35,12 +35,12 @@ const Footer = () => {
         <p>
           {isMobile ? (
             <a
-              href="/kshitij_vashisth_cv.pdf"
+              href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline hover:text-[#1A9A0B]"
             >
-              Click to View Resume!
+              Download Resume!
             </a>
           ) : (
             <button
