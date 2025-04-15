@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf'; // Adjust if needed
 
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const driveResumeLink = "https://drive.google.com/file/d/1cNczkqOceBWJpL4hOtvCPASY1cUAXshC/view?usp=sharing";
+
+
 const Footer = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const modalRef = useRef(null);
@@ -31,8 +35,15 @@ const Footer = () => {
 
         <p>
           <button
-            onClick={() => setIsResumeOpen(true)}
-            className="hover:underline"
+            onClick={() => {
+              if (isMobile) {
+                window.open(driveResumeLink, "_blank");
+              } else {
+                setIsResumeOpen(true);
+              }
+            }}
+
+            className="hover:underline text-[#1A9A0B]"
           >
             Click to View Resume!
           </button>
