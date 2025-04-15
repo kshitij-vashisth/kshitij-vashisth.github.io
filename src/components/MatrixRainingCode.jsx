@@ -7,6 +7,7 @@ const MatrixRainingCode = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+    const lineHeight = 22;
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
@@ -50,7 +51,7 @@ const MatrixRainingCode = () => {
 
           stream.chars.forEach((charObj, index) => {
             const x = i * 20;
-            const y = stream.y - index * 20;
+            const y = stream.y - index * lineHeight;
 
             if (y < 0) return;
 
@@ -60,7 +61,7 @@ const MatrixRainingCode = () => {
             if (index > 0) charObj.opacity *= 0.85;
           });
 
-          stream.y += 20;
+          stream.y += lineHeight;
 
           if (stream.y > height && Math.random() > 0.975) {
             stream.y = 0;
