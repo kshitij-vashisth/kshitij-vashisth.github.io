@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import font1 from "./matrixFont.ttf"
+import font1 from "./matrixFont.ttf";
 
 const MatrixRainingCode = () => {
   const canvasRef = useRef(null);
@@ -13,16 +13,15 @@ const MatrixRainingCode = () => {
     let columns = Math.floor(width / 20);
     const characters = `abcdefghijklmnopqrstuvwxyz0123456789$+-*/=%"'#&_(),.;:?!\\|{}<>[]^~`;
     const charArray = characters.split("");
-    
-    let streams = Array.from({ length: columns }, () => ({
+
+    let streams = Array.from({ length: columns }, (_, i) => ({
       chars: [],
-      y: 0
+      y: Math.random() * height // Start streams at random y positions
     }));
 
-    let frameRate = 25;
+    const frameRate = 25;
     let lastFrameTime = Date.now();
 
-    // Load custom font
     const loadFont = async () => {
       const font = new FontFace("MatrixFont", `url(${new URL(font1, import.meta.url)})`);
       await font.load();
@@ -32,40 +31,37 @@ const MatrixRainingCode = () => {
     loadFont().then(() => {
       ctx.font = "18px MatrixFont";
 
+      // Fill the canvas initially to avoid white flash
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, width, height);
+
       const draw = () => {
         ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
         ctx.fillRect(0, 0, width, height);
         ctx.font = "18px MatrixFont";
 
         streams.forEach((stream, i) => {
-          // Add a new character at the top of the stream
           const newChar = charArray[Math.floor(Math.random() * charArray.length)];
-          stream.chars.unshift({ char: newChar, opacity: 1 }); // Most recent char
+          stream.chars.unshift({ char: newChar, opacity: 1 });
 
-          // Limit stream length (adjustable)
           if (stream.chars.length > 20) {
-            stream.chars.pop(); // Remove old chars
+            stream.chars.pop();
           }
 
-          // Draw characters in the stream
           stream.chars.forEach((charObj, index) => {
             const x = i * 20;
             const y = stream.y - index * 20;
 
-            if (y < 0) return; // Don't draw above the screen
+            if (y < 0) return;
 
-            // Newest character is white
             ctx.fillStyle = index === 0 ? "#fff" : `rgba(0, 255, 0, ${charObj.opacity})`;
             ctx.fillText(charObj.char, x, y);
 
-            // Gradually fade older characters
             if (index > 0) charObj.opacity *= 0.85;
           });
 
-          // Move the stream down
           stream.y += 20;
 
-          // Reset stream randomly
           if (stream.y > height && Math.random() > 0.975) {
             stream.y = 0;
             stream.chars = [];
@@ -91,7 +87,7 @@ const MatrixRainingCode = () => {
       columns = Math.floor(width / 20);
       streams = Array.from({ length: columns }, () => ({
         chars: [],
-        y: 0
+        y: Math.random() * height
       }));
     };
 
