@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import resumePdf from '../assets/resume/kshitij_vashisth_cv.pdf'; // Adjust if needed
 
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-const driveResumeLink = "https://drive.google.com/file/d/1cNczkqOceBWJpL4hOtvCPASY1cUAXshC/view?usp=sharing";
 
 
 const Footer = () => {
@@ -36,8 +35,9 @@ const Footer = () => {
         <p>
           <button
             onClick={() => {
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
               if (isMobile) {
-                window.open(driveResumeLink, "_blank");
+                window.open(resumePdf, '_blank');
               } else {
                 setIsResumeOpen(true);
               }
