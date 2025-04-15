@@ -33,20 +33,24 @@ const Footer = () => {
         </a>
 
         <p>
-          <button
-            onClick={() => {
-              const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-              if (isMobile) {
-                window.open(resumePdf, '_blank');
-              } else {
-                setIsResumeOpen(true);
-              }
-            }}
+          {isMobile ? (
+            <a
+              href={resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline hover:text-[#1A9A0B]"
+            >
+              Click to View Resume!
+            </a>
+          ) : (
+            <button
+              onClick={() => setIsResumeOpen(true)}
+              className="hover:underline hover:text-[#1A9A0B]"
+            >
+              Click to View Resume!
+            </button>
+          )}
 
-            className="hover:underline text-[#1A9A0B]"
-          >
-            Click to View Resume!
-          </button>
         </p>
       </div>
 
