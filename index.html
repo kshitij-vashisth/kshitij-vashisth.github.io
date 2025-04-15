@@ -7,6 +7,23 @@
     <title>Kshitij Vashisth</title>
   </head>
   <body>
+    <style>
+      /* Ensure the background stays behind all content */
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: black;  /* Ensure black background */
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        z-index: -99999; /* Make sure it's the lowest layer */
+      }
+    
+      #root {
+        position: relative;
+        z-index: 1; /* Ensure your React app is on top */
+      }
+    </style>
     <div id="root"></div>
     <script type="module" src="./src/main.jsx"></script>
   </body>
