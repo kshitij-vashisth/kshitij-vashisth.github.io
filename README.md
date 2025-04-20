@@ -47,6 +47,7 @@ src/
 │   ├── Projects.jsx
 │   ├── RotatingSphere.jsx
 │   └── StreamerText.jsx
+```
 
 ---
 
