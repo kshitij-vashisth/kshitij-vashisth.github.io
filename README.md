@@ -67,6 +67,7 @@ git clone https://github.com/kshitij-vashish/kshitij-vashish.github.io.git
 cd kshitij-vashish.github.io
 npm install
 npm run dev
+```
 
 Then open your browser at: `http://localhost:5173`
 
