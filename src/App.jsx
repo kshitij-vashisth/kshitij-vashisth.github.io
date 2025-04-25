@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import './Cursors.css';
+import ArrowDown from './components/ArrowDown';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Intro from './components/Intro';
@@ -68,7 +69,11 @@ function App() {
             }`}
         >
 
-          <BrainCanvas />
+          <BrainCanvas /><br />
+          <div className="md:w-1/2 flex justify-center">
+            <ArrowDown />
+
+          </div>
         </div>
 
 

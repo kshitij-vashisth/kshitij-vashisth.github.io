@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.12",
     "@react-three/drei": "^10.0.5",
     "@react-three/fiber": "^9.1.1",
     "@tailwindcss/vite": "^4.0.17",
