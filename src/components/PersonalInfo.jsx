@@ -1,6 +1,7 @@
 import React from 'react'
 import { RiNextjsLine, RiReactjsFill, RiNodejsLine, RiBootstrapFill, RiTailwindCssLine, RiGithubFill } from "react-icons/ri";
 import { SiExpress, SiFlask, SiPytorch, SiTensorflow, SiPandas, SiScikitlearn, SiDocker, SiMongodb, SiRabbitmq, SiUnity, SiMysql, SiSqlalchemy, SiGnubash } from "react-icons/si";
+import VisitorCounter from './VisitorCounter';
 
 const PersonalInfo = () => {
   return (
@@ -60,10 +61,19 @@ const PersonalInfo = () => {
               <SiGnubash />
             </div>
           </div>
-          
+
 
 
         </div>
+      </div>
+      <div className="translucent-container p-6 custom-green rounded-2xl my-4 w-[95%]">
+
+        <p className="text-xl text-left text-white">
+          Visitors
+        </p>
+        <p className="text-3xl text-left">
+          <VisitorCounter/>
+        </p>
       </div>
     </>
   )
