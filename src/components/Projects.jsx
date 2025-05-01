@@ -10,6 +10,7 @@ import project5 from "../assets/projectImages/gitUploadAutomation.png";
 import project6 from "../assets/projectImages/blockSnake.png";
 import project7 from "../assets/projectImages/toDoListCreator.png";
 import project8 from "../assets/projectImages/prismaTodo.png";
+import project9 from "../assets/projectImages/gdriveClone.png";
 
 // project descriptions
 const desc1 = "Rudra's Dream is a top-down brawler built in Unity using C#, where players battle endless waves of enemies in a fast-paced, action-packed arena. Featuring skill-based melee combat, a wide variety of weapons, and light RPG elements, the game lets players level up, unlock powerful abilities, and gain impactful upgrades mid-run. With tight, responsive controls, escalating difficulty, and a strong emphasis on timing and strategy, Rudra's Dream challenges players to survive as long as possible while mastering combos, dodging deadly attacks, and picking the right powerups to shape their unique playstyle. Designed for fans of raw, satisfying combat, it delivers an intense and highly replayable experience."
@@ -20,6 +21,7 @@ const desc5 = "This Bash script automates updating multiple Git repositories by 
 const desc6 = "BlockSnake is a challenging Unity-based twist on the classic snake game, featuring a minimalist blocky design, retro chiptune music, and fast-paced, skill-based gameplay. With precision movement and an unforgiving difficulty curve, it offers an addictive experience for players who love a real test. Can you master the movement and achieve a high score? 🚀🐍"
 const desc7 = "iTask is a sleek and efficient To-Do List application built with Vite, React, and Tailwind CSS, designed to keep your tasks organized and manageable. This intuitive app allows you to add, edit, delete, and mark tasks as completed, while ensuring your data is saved persistently using localStorage. With features like filtering tasks and simple task management, it’s perfect for those who want a no-frills, yet powerful to-do list solution. Can you stay on top of all your tasks? ✔️📋"
 const desc8 = "TaskForge API – Dockerized Todo Backend with JWT Auth is a secure, scalable backend service built with Node.js, Express.js, Prisma, PostgreSQL, and fully containerized using Docker. Designed for seamless integration into any frontend, it delivers a full-featured REST API with JWT-based authentication, enabling users to register, log in, and manage todos through protected CRUD operations. Leveraging Prisma ORM for elegant database access, bcrypt for password security, and Docker Compose for efficient service orchestration, TaskForge API is production-ready and developer-friendly. With a clean architecture, environment-based config, and straightforward setup, it’s an ideal backend foundation for modern web applications."
+const desc9 = "SkyVault is a secure, user-centric file storage backend built with Node.js, Express.js, MongoDB, and Filebase for cloud storage. It offers authenticated file management via JWT, allowing users to upload, download, and delete their personal files. Featuring a drag-and-drop interface, the app supports a seamless user experience for handling uploads. Filebase ensures S3-compatible, scalable storage, while MongoDB handles metadata and user info. Tailwind and Flowbite enhance the UI, and the backend enforces strict user access controls. With structured routing, environment-based settings, and simple deployment, it’s a lightweight, modern solution for personal cloud storage with privacy and usability in focus."
 
 const projects = [
   { title: "Rudra's Dream", description: desc1, image: project1, link: null, isUpcoming: true },
@@ -29,7 +31,8 @@ const projects = [
   { title: "Git Automation", description: desc5, image: project5, link: "https://github.com/kshitij-vashisth/learning_bash/blob/main/git_up", isUpcoming: false },
   { title: "BlockSnake", description: desc6, image: project6, link: "https://kshitijvashisth.itch.io/snake", isUpcoming: false },
   { title: "iTask", description: desc7, image: project7, link: "https://kshitij-vashisth.github.io/todoListReactApp/", isUpcoming: false },
-  { title: "TaskForge API", description: desc8, image: project8, link: "https://github.com/kshitij-vashisth/learning_web_js/tree/main/backend-course/backend_with_prisma/chapter-4", isUpcoming: false }
+  { title: "TaskForge API", description: desc8, image: project8, link: "https://github.com/kshitij-vashisth/learning_web_js/tree/main/backend-course/backend_with_prisma/chapter-4", isUpcoming: false },
+  { title: "SkyVault", description: desc9, image: project9, link: "https://github.com/kshitij-vashisth/learning_web_js/tree/main/backend-course/sheryian-crash-4hr/6_skyvault", isUpcoming: false }
 ];
 
 const Projects = () => {
