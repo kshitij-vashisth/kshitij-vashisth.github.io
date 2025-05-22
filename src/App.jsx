@@ -12,6 +12,7 @@ import StreamerText from './components/StreamerText';
 import PersonalInfo from './components/PersonalInfo';
 import RotatingSphere from './components/RotatingSphere';
 import backgroundMusic from './assets/music/background-music.mp3';
+import Scroller from './components/Scroller';
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -88,10 +89,15 @@ function App() {
         <StreamerText texts={[" Data Science ", " Machine Learning ", " Predictive Modelling ", " Statistical Analysis ", " Software Development ", " Algorithms ", " Data Structures ", " Web Development ", " Problem-Solving ", " Containerisation ", " User Authentication ", " Responsive Design ", " Version Control ", " Product Design ", " Data Engineering ", " High Performance Computing ", " Accelerated Computing "]} direction={-1} speed={0.3} />
       </section>
 
+
       {/* Projects Section */}
       <section className="h-auto flex items-center justify-center">
         <Projects className="curZur" />
       </section>
+
+      {/* <section>
+        <Scroller texts={["Code Beyond Boundaries"]} />
+      </section> */}
 
       {/* Tech Stack Section */}
       <div className={`items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
