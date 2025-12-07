@@ -26,10 +26,10 @@ const Footer = () => {
         <p className="text-lg">Have a project in mind?</p>
 
         <a
-          href="mailto:kshitijvashisth@gmail.com"
+          href="mailto:kkshitijvasshisth@gmail.com"
           className="text-xl text-white hover:text-[#1A9A0B] inline-block mt-5 mb-4 hover:underline"
         >
-          kshitijvashisth@gmail.com
+          kkshitijvasshisth@gmail.com
         </a>
 
         <p>
