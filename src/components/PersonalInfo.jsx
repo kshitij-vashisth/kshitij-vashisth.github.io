@@ -12,7 +12,7 @@ const PersonalInfo = () => {
           Age
         </p>
         <p className="text-3xl text-left">
-          33
+          34
         </p>
       </div>
       <div className="translucent-container p-6 custom-green rounded-2xl my-4 w-[95%]">
