@@ -8,8 +8,8 @@ const Headline = () => {
                 <div className="bg-[#20C20E] text-white px-4 rounded-full z-100000 hover:bg-[#1A9A0B]">
                     I'M
                 </div>
-                <p className="custom-outline-white">KKSHITIJ</p>
-                <p className="text-white custom-outline-green">VASSHISTH<span className='text-[#20C20E] custom-outline-white'>!</span></p>
+                <p className="custom-outline-white">KSHITIJ</p>
+                <p className="text-white custom-outline-green">VASHISTH<span className='text-[#20C20E] custom-outline-white'>!</span></p>
             </div>
         </>
     )
