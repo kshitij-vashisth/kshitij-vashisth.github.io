@@ -102,7 +102,7 @@ function App() {
       {/* Tech Stack Section */}
       <div className={`items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
-          <div className='flex justify-center items-center flex-col mx-[4vw] scale-110'>
+          <div className='flex justify-center items-center flex-col mt-[-30vh] mx-[4vw] scale-118'>
             <RotatingSphere />
           </div>
         )}
