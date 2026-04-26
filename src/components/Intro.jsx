@@ -10,7 +10,11 @@ const Intro = () => {
                 <div className="translucent-container p-6 rounded-3xl">
                  
                     <p className="text-[18px] text-left">
-                    A full-stack developer who lives and breathes code 💻🔥, obsessed with building blazing-fast ⚡, scalable 📈 applications that don’t just work—they thrill users 🎢. I geek out over clean architecture 🏗️, buttery-smooth UIs 🧈🎨, and solving gnarly technical challenges 💡🧠. When I’m not refactoring 🔄 or debugging 🐞, you’ll find me absorbing new tech 📚🤓, or engaged in technical discussions with fellow devs 👨🏫✨. Let’s collaborate and turn wild ideas into rock-solid reality 🚀—preferably with coffee ☕ in hand.
+                    A Physics educator, neuroscientist, and computational researcher who enjoys breaking down complex ideas into clear, intuitive understanding ⚡📘. I’m driven by building strong problem-solving skills 🧠💡 and exploring how physics, neuroscience, and AI intersect to solve real-world challenges 🔬🤖.
+
+I work across modelling, data analysis, and simulations 🧬📊🌌, combining scientific thinking with computation.
+
+Always curious, always learning 📚—let’s collaborate to turn complex ideas into meaningful solutions 🚀
                     </p>
                 </div>
             </div>
