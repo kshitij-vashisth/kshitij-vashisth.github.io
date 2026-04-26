@@ -7,10 +7,10 @@ import Footer from './components/Footer';
 import Intro from './components/Intro';
 import Headline from './components/Headline';
 import Projects from './components/Projects';
-import BrainCanvas from './components/BrainCanvas';
+import NeuronalNetwork from './components/NeuronalNetwork';
 import StreamerText from './components/StreamerText';
 import PersonalInfo from './components/PersonalInfo';
-import RotatingSphere from './components/RotatingSphere';
+import KleinBottle from './components/KleinBottle';
 import backgroundMusic from './assets/music/background-music.mp3';
 import Scroller from './components/Scroller';
 
@@ -57,9 +57,9 @@ function App() {
       </div>
 
       {/* Main Section */}
-      <section className={`mt-[5vh] h-auto items-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
+      <section className={`h-auto items-center ${isDesktop ? 'mt-[5vh] grid grid-cols-2' : 'mt-[-8vh] mx-[10vw] scale-90 flex flex-col'}`}>
         {/* Right column with Headline and Intro */}
-        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[4vw] text-[54px]' : 'mb-4 mx-10 text-[21px]'}`}>
+        <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[4vw] text-[54px]' : 'mb-[-15vh] mx-10 text-[21px]'}`}>
           <Headline />
           <Intro />
           <div className="md:w-1/2 flex justify-center">
@@ -68,47 +68,47 @@ function App() {
           </div>
         </div>
 
-        {/* Left column with BrainCanvas (Only on Desktop) */}
+        {/* Right column with KleinBottle (Only on Desktop) */}
         <div
-          className={`scale-125 rounded-3xl mt-[-25vh] flex-grow flex flex-col justify-center items-center ${isDesktop ? 'ml-[-15vw] mr-[4vw] my-5' : 'my-4 mx-10'
+          className={`rounded-3xl mt-[-25vh] flex-grow flex flex-col justify-center items-center ${isDesktop ? 'scale-125 ml-[-15vw] mr-[4vw] my-5' : 'w-[100vw] mt-[5vh] mb-[-40vh] px-[10vh]'
             }`}
         >
 
-          <RotatingSphere /><br />
-          
+          <KleinBottle /><br />
+
         </div>
 
 
       </section>
 
       {/* Other sections as before */}
-<section className="mt-[5vh] mb-0.5 flex flex-col h-auto items-center">
-  <StreamerText 
-    texts={[
-      " Python ", " C/C++ ", " Scientific Computing ", " Game Development ", 
-      " Computational Modelling ", " Computational Physics ", " Machine Learning ", " Full-Stack Development ", 
-      " TensorFlow ", " Scikit-Learn ", " NumPy ", " Pandas ", " Matplotlib ", 
-      " GROMACS ", " AutoDock ", " PyMol ", " Docker ", 
-      " Git ", " HPC ", " Linux ", " Bash ", " SQL "
-    ]} 
-    direction={1} 
-    speed={0.3} 
-  />
-</section>
+      <section className="mt-[5vh] mb-0.5 flex flex-col h-auto items-center">
+        <StreamerText
+          texts={[
+            " Python ", " C/C++ ", " Scientific Computing ", " Game Development ",
+            " Computational Modelling ", " Computational Physics ", " Machine Learning ", " Full-Stack Development ",
+            " TensorFlow ", " Scikit-Learn ", " NumPy ", " Pandas ", " Matplotlib ",
+            " GROMACS ", " AutoDock ", " PyMol ", " Docker ",
+            " Git ", " HPC ", " Linux ", " Bash ", " SQL "
+          ]}
+          direction={1}
+          speed={0.3}
+        />
+      </section>
 
-<section className="mb-[5vh] mt-0.5 flex flex-col h-auto items-center">
-  <StreamerText 
-    texts={[
-      " Physics Education ", " Heat Death Simulation ", " Classical Mechanics ", 
-      " Electromagnetism ", " Modern Physics ", " Optics ", 
-      " Thermodynamics ", " Waves & Oscillations ", " String Theory ",
-      " Neuroscience ", " Neurobiology ", " Brain & Behaviour ", 
-      " Neural Systems ", " Biological Systems "
-    ]} 
-    direction={-1} 
-    speed={0.3} 
-  />
-</section>
+      <section className="mb-[5vh] mt-0.5 flex flex-col h-auto items-center">
+        <StreamerText
+          texts={[
+            " Physics Education ", " Heat Death Simulation ", " Classical Mechanics ",
+            " Electromagnetism ", " Modern Physics ", " Optics ",
+            " Thermodynamics ", " Waves & Oscillations ", " String Theory ",
+            " Neuroscience ", " Neurobiology ", " Brain & Behaviour ",
+            " Neural Systems ", " Biological Systems "
+          ]}
+          direction={-1}
+          speed={0.3}
+        />
+      </section>
 
 
       {/* Projects Section */}
@@ -124,16 +124,16 @@ function App() {
       <div className={`items-center justify-center ${isDesktop ? 'grid grid-cols-2' : 'flex flex-col'}`}>
         {isDesktop && (
           <div className='flex translucent-container justify-center items-center flex-col mt-[-30vh] mx-[4vw] h-[80vh] w-[45vw]'>
-              <BrainCanvas />
+            <NeuronalNetwork />
           </div>
         )}
 
-        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mx-[5vw]' : 'mx-10 mb-4'}`}>
+        <div className={`flex flex-col justify-center items-center ${isDesktop ? 'mx-[5vw]' : 'mt-[-20vh] w-[95vw] mx-10 mb-4'}`}>
           <PersonalInfo />
         </div>
       </div>
 
-      <section className=" text-[#20C20E] flex items-center justify-center">
+      <section className={`text-[#20C20E] flex items-center justify-center ${isDesktop ? '': 'scale-85 w-[90vw] ml-[3vw] mb-4'}`}>
         {/* Footer */}
         <footer>
           <Footer />

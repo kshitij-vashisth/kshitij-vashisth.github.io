@@ -1,9 +1,11 @@
 import React from 'react'
+import { useState } from 'react';
 import { RiNextjsLine, RiReactjsFill, RiNodejsLine, RiBootstrapFill, RiTailwindCssLine, RiGithubFill } from "react-icons/ri";
 import { SiExpress, SiFlask, SiPytorch, SiTensorflow, SiPandas, SiScikitlearn, SiDocker, SiMongodb, SiRabbitmq, SiUnity, SiMysql, SiSqlalchemy, SiGnubash } from "react-icons/si";
 import VisitorCounter from './VisitorCounter';
 
 const PersonalInfo = () => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
   return (
     <>
       <div className="translucent-container p-6 custom-green rounded-2xl my-4 w-[95%]">
@@ -30,7 +32,7 @@ const PersonalInfo = () => {
           Tech Stack
         </p>
         <div className="text-[46px] text-left">
-          <div className="flex gap-x-4">
+          <div className={`flex gap-x-4 ${isDesktop ? '':'ml-[-7vw] scale-80'}`}>
             <div className="flex flex-col gap-y-4">
               <RiNextjsLine />
               <RiReactjsFill />
