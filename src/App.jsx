@@ -62,19 +62,20 @@ function App() {
         <div className={`flex-grow flex flex-col justify-center items-center custom-green ${isDesktop ? 'mx-[4vw] text-[54px]' : 'mb-4 mx-10 text-[21px]'}`}>
           <Headline />
           <Intro />
-        </div>
-
-        {/* Left column with BrainCanvas (Only on Desktop) */}
-        <div
-          className={`scale-118 rounded-3xl mt-[-25vh] flex-grow flex flex-col justify-center items-center ${isDesktop ? 'mx-[4vw] my-5' : 'my-4 mx-10'
-            }`}
-        >
-
-          <RotatingSphere /><br />
           <div className="md:w-1/2 flex justify-center">
             <ArrowDown />
 
           </div>
+        </div>
+
+        {/* Left column with BrainCanvas (Only on Desktop) */}
+        <div
+          className={`scale-125 rounded-3xl mt-[-25vh] flex-grow flex flex-col justify-center items-center ${isDesktop ? 'ml-[-15vw] mr-[4vw] my-5' : 'my-4 mx-10'
+            }`}
+        >
+
+          <RotatingSphere /><br />
+          
         </div>
 
 
