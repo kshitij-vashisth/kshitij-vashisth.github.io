@@ -353,7 +353,7 @@ const BrainCanvas = () => {
   const [hoveredId, setHoveredId] = useState(null)
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '70%', height: '50vh' }}>
       <Canvas
         camera={{ position: [0, 0, 60], fov: 35 }}
         style={{ background: "transparent", width: '100%', height: '100%' }}
