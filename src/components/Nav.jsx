@@ -26,7 +26,7 @@ export default function Nav() {
         <NavLink to="/" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link} end>Home</NavLink>
         <NavLink to="/projects" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>Simulations</NavLink>
         <NavLink to="/teaching" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>Teaching</NavLink>
-        <a href="https://github.com" target="_blank" rel="noreferrer" className={styles.link}>GitHub ↗</a>
+        <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer" className={styles.link}>GitHub ↗</a>
       </div>
 
       <button className={styles.hamburger} onClick={() => setOpen(!open)} aria-label="Toggle menu">
