@@ -306,7 +306,7 @@ export default function Home() {
       </section>
 
       <footer className={styles.footer}>
-        <div className={styles.footerLogo}>∇ PhysicsEd</div>
+        <div className={styles.footerLogo}>∇ LitPhysics</div>
         <div className={styles.footerLinks}>
           <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:kkshitijvasshisth@email.com">Email</a>
