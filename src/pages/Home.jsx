@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
+import OrbitalSim from '../simulations/OrbitalSim.jsx'
+import EMSim from '../simulations/EMSim.jsx'
+import WaveSim from '../simulations/WaveSim.jsx'
+import MechanicsSim from '../simulations/MechanicsSim.jsx'
 
 const PROJECTS = [
   {
@@ -26,7 +30,7 @@ const PROJECTS = [
   {
     id: 'waves',
     icon: '∿',
-    tag: 'Planned',
+    tag: 'Live',
     tagColor: '#f5a623',
     title: 'Wave & Oscillation Lab',
     desc: 'SHM, damping, resonance, double-slit interference, and Fourier synthesis.',
@@ -36,7 +40,7 @@ const PROJECTS = [
   {
     id: 'mechanics',
     icon: '◎',
-    tag: 'Planned',
+    tag: 'Live',
     tagColor: '#4a9ef5',
     title: 'Mechanics Toolkit',
     desc: 'Projectile with/without drag, elastic collisions with momentum readout.',
@@ -45,16 +49,21 @@ const PROJECTS = [
   },
 ]
 
-// ✏️ Replace the videoUrl values with your real YouTube links
+const SIM_COMPONENTS = {
+  orbital: OrbitalSim,
+  em: EMSim,
+  waves: WaveSim,
+  mechanics: MechanicsSim,
+}
+
 const TEACHING_TOPICS = [
-  { title: 'Laws of Motion-1', duration: '59 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_1' },
-  { title: 'Laws of Motion-2', duration: '118 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_2' },
-  { title: 'Friction-1', duration: '93 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_3' },
-  { title: 'Moment of Inertia', duration: '43 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_4' },
-  { title: 'Basic Mathematics-1', duration: '100 min', topic: 'Mathematical Prerequisites', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_5' },
+  { title: 'Laws of Motion-1', duration: '59 min', topic: 'Dynamics', videoUrl: 'https://youtu.be/tYNlUXjGxuQ' },
+  { title: 'Laws of Motion-2', duration: '118 min', topic: 'Dynamics', videoUrl: 'https://youtu.be/5dHt9B7m3P4' },
+  { title: 'Friction-1', duration: '93 min', topic: 'Dynamics', videoUrl: 'https://youtu.be/Vtr3O6WgibU' },
+  { title: 'Moment of Inertia', duration: '43 min', topic: 'Dynamics', videoUrl: 'https://youtu.be/uLnWhKTcI9k' },
+  { title: 'Basic Mathematics-1', duration: '100 min', topic: 'Mathematical Prerequisites', videoUrl: 'https://www.youtube.com/embed/kCdSfZ4oyh8?si=ulgZKaFsQWuKqw3z' },
 ]
 
-// Converts any YouTube URL to an embed URL
 function toEmbedUrl(url) {
   try {
     const u = new URL(url)
@@ -101,23 +110,19 @@ function StarField({ canvasRef }) {
 
 function VideoModal({ topic, onClose }) {
   const iframeRef = useRef(null)
-
   const [closeHovered, setCloseHovered] = useState(false)
 
-  // Stop video on close by blanking the src
   const handleClose = () => {
     if (iframeRef.current) iframeRef.current.src = ''
     onClose()
   }
 
-  // Close on Escape key
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') handleClose() }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [])
 
-  // Prevent body scroll while modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
@@ -144,7 +149,6 @@ function VideoModal({ topic, onClose }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '12px 16px',
@@ -169,21 +173,118 @@ function VideoModal({ topic, onClose }) {
             }}
           >✕</button>
         </div>
-
-        {/* Video */}
-        <div style={{ position: 'relative', paddingTop: '56.25%' /* 16:9 */ }}>
+        <div style={{ position: 'relative', paddingTop: '56.25%' }}>
           <iframe
             ref={iframeRef}
             src={toEmbedUrl(topic.videoUrl)}
             title={topic.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            style={{
-              position: 'absolute', inset: 0,
-              width: '100%', height: '100%',
-              border: 'none',
-            }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }}
           />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SimModal({ project, onClose }) {
+  const [closeHovered, setCloseHovered] = useState(false)
+  // Look up the actual React component for this simulation
+  const SimComponent = SIM_COMPONENTS[project.id]
+
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [onClose])
+
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  return (
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.88)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        backdropFilter: 'blur(4px)',
+      }}
+      onClick={onClose}
+    >
+      <div
+        style={{
+          position: 'relative',
+          width: 'min(1100px, 95vw)',
+          maxHeight: '90vh',
+          background: '#0f0f13',
+          borderRadius: 12,
+          overflow: 'hidden',
+          boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '12px 16px', flexShrink: 0,
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{
+              background: project.color + '18', color: project.color,
+              width: 30, height: 30, borderRadius: 6,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 16,
+            }}>
+              {project.icon}
+            </div>
+            <div>
+              <div style={{ color: '#fff', fontWeight: 600, fontSize: 15 }}>{project.title}</div>
+              <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 12, marginTop: 1 }}>
+                {project.chips.join(' · ')}
+              </div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Link
+              to={`/sim/${project.id}`}
+              onClick={onClose}
+              style={{
+                color: project.color, fontSize: 12, textDecoration: 'none',
+                background: project.color + '18', padding: '4px 10px',
+                borderRadius: 5, fontWeight: 500,
+              }}
+            >
+              Open full page ↗
+            </Link>
+            <button
+              onClick={onClose}
+              onMouseEnter={() => setCloseHovered(true)}
+              onMouseLeave={() => setCloseHovered(false)}
+              style={{
+                background: closeHovered ? '#e53e3e' : 'rgba(255,255,255,0.08)',
+                border: 'none', cursor: 'pointer',
+                color: '#fff', borderRadius: 6, width: 32, height: 32,
+                fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                transition: 'background 0.15s ease',
+              }}
+            >✕</button>
+          </div>
+        </div>
+
+        {/* Simulation rendered directly as a React component */}
+        <div style={{ overflowY: 'auto', flex: 1 }}>
+          {SimComponent
+            ? <SimComponent />
+            : <div style={{ padding: 40, color: 'rgba(255,255,255,0.4)', textAlign: 'center' }}>
+                Simulation not found.
+              </div>
+          }
         </div>
       </div>
     </div>
@@ -193,11 +294,15 @@ function VideoModal({ topic, onClose }) {
 export default function Home() {
   const canvasRef = useRef(null)
   const [activeVideo, setActiveVideo] = useState(null)
+  const [activeSim, setActiveSim] = useState(null)
 
   return (
     <main className={styles.main}>
       {activeVideo && (
         <VideoModal topic={activeVideo} onClose={() => setActiveVideo(null)} />
+      )}
+      {activeSim && (
+        <SimModal project={activeSim} onClose={() => setActiveSim(null)} />
       )}
 
       <section className={styles.hero}>
@@ -238,7 +343,7 @@ export default function Home() {
         {[
           { n: '4', label: 'Physics simulators' },
           { n: '4+', label: 'Teaching demos' },
-          { n: 'NEET/JEE · A-Level/IB(soon)', label: 'Curriculum coverage' },
+          { n: 'NEET/JEE · A-Level/IB (soon)', label: 'Curriculum coverage' },
           { n: 'RK4', label: 'Integration method' },
         ].map(s => (
           <div key={s.n} className={styles.statCell}>
@@ -259,7 +364,12 @@ export default function Home() {
 
         <div className={styles.projectGrid}>
           {PROJECTS.map(p => (
-            <Link to={`/sim/${p.id}`} key={p.id} className={styles.projectCard} style={{ '--card-accent': p.color }}>
+            <div
+              key={p.id}
+              className={styles.projectCard}
+              style={{ '--card-accent': p.color, cursor: 'pointer' }}
+              onClick={() => setActiveSim(p)}
+            >
               <div className={styles.cardTop}>
                 <div className={styles.cardIcon} style={{ background: p.color + '18', color: p.color }}>{p.icon}</div>
                 <span className={styles.cardTag} style={{ background: p.color + '18', color: p.color }}>{p.tag}</span>
@@ -270,7 +380,7 @@ export default function Home() {
                 {p.chips.map(c => <span key={c} className={styles.chip}>{c}</span>)}
               </div>
               <div className={styles.cardArrow}>Open simulation →</div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
