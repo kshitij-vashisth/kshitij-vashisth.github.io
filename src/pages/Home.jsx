@@ -102,6 +102,8 @@ function StarField({ canvasRef }) {
 function VideoModal({ topic, onClose }) {
   const iframeRef = useRef(null)
 
+  const [closeHovered, setCloseHovered] = useState(false)
+
   // Stop video on close by blanking the src
   const handleClose = () => {
     if (iframeRef.current) iframeRef.current.src = ''
@@ -156,10 +158,14 @@ function VideoModal({ topic, onClose }) {
           </div>
           <button
             onClick={handleClose}
+            onMouseEnter={() => setCloseHovered(true)}
+            onMouseLeave={() => setCloseHovered(false)}
             style={{
-              background: 'rgba(255,255,255,0.08)', border: 'none', cursor: 'pointer',
+              background: closeHovered ? '#e53e3e' : 'rgba(255,255,255,0.08)',
+              border: 'none', cursor: 'pointer',
               color: '#fff', borderRadius: 6, width: 32, height: 32,
               fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
+              transition: 'background 0.15s ease',
             }}
           >✕</button>
         </div>
