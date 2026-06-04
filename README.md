@@ -32,9 +32,8 @@ npm run dev
 2. Go to **Settings → Pages → Source** → select `GitHub Actions`
 3. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically
 
-The site will be live at `https://<your-username>.github.io/physics-portfolio/`
+The site will be live at `https://kshitij-vashisth.github.io`
 
-> **Note:** `vite.config.js` sets `base: '/physics-portfolio/'` — change this to match your repo name if different.
 
 ## Project structure
 
