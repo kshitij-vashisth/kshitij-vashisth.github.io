@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+final.zip
+physics-portfolio.zip
 
 # Editor directories and files
 .vscode/*

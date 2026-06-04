@@ -1,78 +1,62 @@
-# 🧠 Personal Portfolio
+# Physics Portfolio
 
-This is the source code for my interactive, animated, and responsive developer portfolio — built with **React**, styled using **TailwindCSS**, and hosted via **GitHub Pages**.
+Interactive physics simulations and teaching demos — built with React + Vite, deployed via GitHub Actions to GitHub Pages.
 
-🔗 **Live Site**: [kshitij-vashisth.github.io](https://kshitij-vashisth.github.io)
+## Stack
 
----
+- React 18 + React Router (HashRouter for static hosting)
+- Vite 5
+- Pure Canvas API for all simulations (no physics libraries)
+- CSS Modules
+- GitHub Actions → GitHub Pages
 
-## ⚙️ Tech Stack
+## Simulations
 
-- **Framework**: React (with Vite)
-- **Styling**: TailwindCSS, CSS animations
-- **3D Rendering**: Three.js (`BrainCanvas`)
-- **Audio**: HTML5 Audio API
-- **Custom Components**: Modular React architecture
+| Sim | Physics | Key technique |
+|-----|---------|---------------|
+| Orbital Mechanics | Newtonian gravity | RK4, Verlet, Euler integrators |
+| E&M Fields | Coulomb's law | Marching squares equipotentials, field line tracing |
+| Wave Lab | SHM, wave optics, Fourier | Phase space portrait, double-slit interference |
+| Mechanics Toolkit | Projectile, collisions | Drag comparison, elastic collision with readout |
 
----
-
-## 🚀 Features
-
-- 🎨 Responsive layout (desktop & mobile)
-- 🧠 Animated brain canvas (desktop only)
-- 🎧 Toggleable background music
-- 💼 Project showcase section
-- 🌀 Rotating tech sphere
-- 🔁 Scrolling tech stack banners
-- 📝 Personal info & contact
-
----
-
-## 🗂️ Folder Structure
+## Local development
 
 ```bash
-src/
-├── App.jsx               # Main app component
-├── App.css               # Global styles
-├── Cursors.css           # Cursor styling
-├── assets/
-│   └── music/            # Background music
-├── components/           # Custom components
-│   ├── BrainCanvas.jsx
-│   ├── Footer.jsx
-│   ├── Headline.jsx
-│   ├── Intro.jsx
-│   ├── Navbar.jsx
-│   ├── PersonalInfo.jsx
-│   ├── Projects.jsx
-│   ├── RotatingSphere.jsx
-│   └── StreamerText.jsx
-```
-
----
-
-## 🧑‍💻 Local Setup
-
-To run this project locally:
-
-### Prerequisites
-
-- Node.js (v22.13.0)
-- npm or yarn
-
-### Steps
-
-```bash
-git clone https://github.com/kshitij-vashish/kshitij-vashish.github.io.git
-cd kshitij-vashish.github.io
 npm install
 npm run dev
 ```
 
-Then open your browser at: `http://localhost:5173`
+## Deploy to GitHub Pages
 
----
+1. Push this repo to GitHub
+2. Go to **Settings → Pages → Source** → select `GitHub Actions`
+3. Push to `main` — the workflow in `.github/workflows/deploy.yml` builds and deploys automatically
 
-## 📦 Deployment
+The site will be live at `https://<your-username>.github.io/physics-portfolio/`
 
-Deployed via **GitHub Pages** using the `gh-pages` branch via git workflows.
+> **Note:** `vite.config.js` sets `base: '/physics-portfolio/'` — change this to match your repo name if different.
+
+## Project structure
+
+```
+src/
+  components/
+    Nav.jsx / Nav.module.css
+  pages/
+    Home.jsx / Home.module.css
+    Projects.jsx / Projects.module.css
+    SimulationPage.jsx / SimulationPage.module.css
+    Teaching.jsx / Teaching.module.css
+  simulations/
+    OrbitalSim.jsx
+    EMSim.jsx
+    WaveSim.jsx
+    MechanicsSim.jsx
+    Sim.module.css        ← shared sim controls CSS
+  App.jsx
+  main.jsx
+  index.css
+.github/workflows/deploy.yml
+vite.config.js
+index.html
+```
