@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 
@@ -19,7 +19,7 @@ const PROJECTS = [
     tag: 'Building',
     tagColor: '#2dd4a0',
     title: 'E&M Field Visualizer',
-    desc: 'Place charges, see field lines and equipotentials in real time via Coulomb\'s law.',
+    desc: "Place charges, see field lines and equipotentials in real time via Coulomb's law.",
     chips: ['Field lines', 'Equipotentials', 'Lorentz force'],
     color: '#2dd4a0',
   },
@@ -45,34 +45,41 @@ const PROJECTS = [
   },
 ]
 
+// ✏️ Replace the videoUrl values with your real YouTube links
 const TEACHING_TOPICS = [
-  { title: 'Why orbital velocity works', duration: '12 min', topic: 'Mechanics' },
-  { title: "Intuition behind Maxwell's equations", duration: '15 min', topic: 'E&M' },
-  { title: 'Chaos in the three-body problem', duration: '10 min', topic: 'Dynamics' },
-  { title: 'What is resonance?', duration: '11 min', topic: 'Waves' },
-  { title: 'Physics of black holes', duration: '14 min', topic: 'GR' },
+  { title: 'Laws of Motion-1', duration: '59 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_1' },
+  { title: 'Laws of Motion-2', duration: '118 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_2' },
+  { title: 'Friction-1', duration: '93 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_3' },
+  { title: 'Moment of Inertia', duration: '43 min', topic: 'Dynamics', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_4' },
+  { title: 'Basic Mathematics-1', duration: '100 min', topic: 'Mathematical Prerequisites', videoUrl: 'https://www.youtube.com/watch?v=REPLACE_ME_5' },
 ]
+
+// Converts any YouTube URL to an embed URL
+function toEmbedUrl(url) {
+  try {
+    const u = new URL(url)
+    let videoId = u.searchParams.get('v')
+    if (!videoId && u.hostname === 'youtu.be') videoId = u.pathname.slice(1)
+    if (!videoId) return url
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1`
+  } catch {
+    return url
+  }
+}
 
 function StarField({ canvasRef }) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
-    const resize = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
+    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
     resize()
     window.addEventListener('resize', resize)
-
     const stars = Array.from({ length: 120 }, () => ({
-      x: Math.random(),
-      y: Math.random(),
+      x: Math.random(), y: Math.random(),
       r: Math.random() * 1.2 + 0.2,
-      a: Math.random(),
-      speed: Math.random() * 0.003 + 0.001,
+      a: Math.random(), speed: Math.random() * 0.003 + 0.001,
     }))
-
     let raf
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -92,11 +99,101 @@ function StarField({ canvasRef }) {
   return null
 }
 
+function VideoModal({ topic, onClose }) {
+  const iframeRef = useRef(null)
+
+  // Stop video on close by blanking the src
+  const handleClose = () => {
+    if (iframeRef.current) iframeRef.current.src = ''
+    onClose()
+  }
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') handleClose() }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [])
+
+  // Prevent body scroll while modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  return (
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.82)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        backdropFilter: 'blur(4px)',
+      }}
+      onClick={handleClose}
+    >
+      <div
+        style={{
+          position: 'relative',
+          width: 'min(860px, 92vw)',
+          background: '#0f0f13',
+          borderRadius: 12,
+          overflow: 'hidden',
+          boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '12px 16px',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+        }}>
+          <div>
+            <div style={{ color: '#fff', fontWeight: 600, fontSize: 15 }}>{topic.title}</div>
+            <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 12, marginTop: 2 }}>
+              {topic.duration} · {topic.topic}
+            </div>
+          </div>
+          <button
+            onClick={handleClose}
+            style={{
+              background: 'rgba(255,255,255,0.08)', border: 'none', cursor: 'pointer',
+              color: '#fff', borderRadius: 6, width: 32, height: 32,
+              fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >✕</button>
+        </div>
+
+        {/* Video */}
+        <div style={{ position: 'relative', paddingTop: '56.25%' /* 16:9 */ }}>
+          <iframe
+            ref={iframeRef}
+            src={toEmbedUrl(topic.videoUrl)}
+            title={topic.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            style={{
+              position: 'absolute', inset: 0,
+              width: '100%', height: '100%',
+              border: 'none',
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const canvasRef = useRef(null)
+  const [activeVideo, setActiveVideo] = useState(null)
 
   return (
     <main className={styles.main}>
+      {activeVideo && (
+        <VideoModal topic={activeVideo} onClose={() => setActiveVideo(null)} />
+      )}
+
       <section className={styles.hero}>
         <canvas ref={canvasRef} className={styles.stars} />
         <StarField canvasRef={canvasRef} />
@@ -114,7 +211,7 @@ export default function Home() {
 
           <p className={styles.heroSub}>
             I design interactive simulations and conceptual teaching materials
-            for A-Level, IB, and introductory undergraduate physics.
+            for NEET, JEE, A-Level, IB, and introductory undergraduate physics.
             Computation is how I make the invisible visible.
           </p>
 
@@ -134,8 +231,8 @@ export default function Home() {
       <section className={styles.stats}>
         {[
           { n: '4', label: 'Physics simulators' },
-          { n: '10+', label: 'Teaching demos' },
-          { n: 'A-Level · IB', label: 'Curriculum coverage' },
+          { n: '4+', label: 'Teaching demos' },
+          { n: 'NEET/JEE · A-Level/IB(soon)', label: 'Curriculum coverage' },
           { n: 'RK4', label: 'Integration method' },
         ].map(s => (
           <div key={s.n} className={styles.statCell}>
@@ -183,7 +280,12 @@ export default function Home() {
 
         <div className={styles.teachingList}>
           {TEACHING_TOPICS.map((t, i) => (
-            <Link to="/teaching" key={i} className={styles.teachingItem}>
+            <div
+              key={i}
+              className={styles.teachingItem}
+              onClick={() => setActiveVideo(t)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className={styles.teachingNum} style={{ fontFamily: 'var(--font-mono)', color: 'var(--text-3)', fontSize: 13 }}>
                 {String(i + 1).padStart(2, '0')}
               </div>
@@ -192,7 +294,7 @@ export default function Home() {
                 <div className={styles.teachingMeta}>{t.duration} · {t.topic}</div>
               </div>
               <div className={styles.teachingPlay}>▶</div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
@@ -200,8 +302,8 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.footerLogo}>∇ PhysicsEd</div>
         <div className={styles.footerLinks}>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="mailto:you@email.com">Email</a>
+          <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="mailto:kkshitijvasshisth@email.com">Email</a>
         </div>
         <div className={styles.footerNote}>Built with React · Deployed via GitHub Actions</div>
       </footer>
