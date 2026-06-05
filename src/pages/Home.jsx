@@ -5,6 +5,7 @@ import OrbitalSim from '../simulations/OrbitalSim.jsx'
 import EMSim from '../simulations/EMSim.jsx'
 import WaveSim from '../simulations/WaveSim.jsx'
 import MechanicsSim from '../simulations/MechanicsSim.jsx'
+import KleinBottle from '../components/KleinBottle.jsx'
 
 const PROJECTS = [
   {
@@ -309,32 +310,39 @@ export default function Home() {
         <canvas ref={canvasRef} className={styles.stars} />
         <StarField canvasRef={canvasRef} />
 
-        <div className={styles.heroContent}>
-          <div className={styles.badge}>
-            <span className={styles.dot} />
-            Physics Educator · Computational STEM
+        <div className={styles.heroInner}>
+          {/* Klein bottle — desktop only, hidden on mobile via CSS */}
+          <div className={styles.heroVisual}>
+            <KleinBottle />
           </div>
 
-          <h1 className={styles.heroTitle}>
-            Building tools that make<br />
-            <em className={styles.heroAccent}>physics intuitive</em>
-          </h1>
+          <div className={styles.heroContent}>
+            <div className={styles.badge}>
+              <span className={styles.dot} />
+              Physics Educator · Computational STEM
+            </div>
 
-          <p className={styles.heroSub}>
-            I design interactive simulations and conceptual teaching materials
-            for NEET, JEE, A-Level, IB, and introductory undergraduate physics.
-            Computation is how I make the invisible visible.
-          </p>
+            <h1 className={styles.heroTitle}>
+              Building tools that make<br />
+              <em className={styles.heroAccent}>physics intuitive</em>
+            </h1>
 
-          <div className={styles.heroBtns}>
-            <Link to="/projects" className={styles.btnPrimary}>View simulations →</Link>
-            <Link to="/teaching" className={styles.btnSecondary}>Teaching demos</Link>
-          </div>
+            <p className={styles.heroSub}>
+              I design interactive simulations and conceptual teaching materials
+              for NEET, JEE, A-Level, IB, and introductory undergraduate physics.
+              Computation is how I make the invisible visible.
+            </p>
 
-          <div className={styles.stack}>
-            {['Python', 'NumPy', 'SciPy', 'React', 'p5.js', 'Streamlit'].map(t => (
-              <span key={t} className={styles.stackTag}>{t}</span>
-            ))}
+            <div className={styles.heroBtns}>
+              <Link to="/projects" className={styles.btnPrimary}>View simulations →</Link>
+              <Link to="/teaching" className={styles.btnSecondary}>Teaching demos</Link>
+            </div>
+
+            <div className={styles.stack}>
+              {['Python', 'NumPy', 'SciPy', 'React', 'p5.js', 'Streamlit'].map(t => (
+                <span key={t} className={styles.stackTag}>{t}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -416,7 +424,7 @@ export default function Home() {
       </section>
 
       <footer className={styles.footer}>
-        <div className={styles.footerLogo}>∇ LitPhysics</div>
+        <div className={styles.footerLogo}>∇ PhysicsEd</div>
         <div className={styles.footerLinks}>
           <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:kkshitijvasshisth@email.com">Email</a>
