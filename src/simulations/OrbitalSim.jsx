@@ -5,10 +5,10 @@ const G = 39.478
 
 function makeBodies(scenario) {
   if (scenario === 'earth') return [
-    { x: 0, y: 0, vx: 0, vy: 0, m: 1.0, r: 14, color: '#f5c84a', name: 'Sun' },
-    { x: 1.0, y: 0, vx: 0, vy: 6.283, m: 3e-6, r: 5, color: '#4af5c8', name: 'Earth' },
-    { x: 1.0027, y: 0, vx: 0, vy: 6.283 + 0.84, m: 3.7e-8, r: 3, color: '#c8c8c8', name: 'Moon' },
-  ]
+  { x: 0,    y: 0, vx: 0, vy: 0,               m: 1.0,   r: 14, color: '#f5c84a', name: 'Sun'   },
+  { x: 1.0,  y: 0, vx: 0, vy: 6.283,            m: 0.001, r: 3,  color: '#4af5c8', name: 'Earth' },
+  { x: 1.04, y: 0, vx: 0, vy: 6.283 + 0.9935,    m: 3.7e-8,r: 1,  color: '#c8c8c8', name: 'Moon'  },
+]
   if (scenario === 'binary') return [
     { x: -0.5, y: 0, vx: 0, vy: -3.14, m: 1.0, r: 12, color: '#f5c84a', name: 'Star A' },
     { x: 0.5, y: 0, vx: 0, vy: 3.14, m: 1.0, r: 12, color: '#f54a7a', name: 'Star B' },
@@ -27,7 +27,7 @@ function accel(bs) {
     bs.forEach((o, j) => {
       if (i === j) return
       const dx = o.x - b.x, dy = o.y - b.y
-      const r2 = dx * dx + dy * dy + 1e-6
+      const r2 = dx * dx + dy * dy + 1e-4
       const r = Math.sqrt(r2)
       const f = G * o.m / r2
       ax += f * dx / r; ay += f * dy / r
@@ -43,7 +43,7 @@ function stepRK4(bodies, dt) {
     state.forEach((o, j) => {
       if (i === j) return
       const dx = o.x - b.x, dy = o.y - b.y
-      const r2 = dx * dx + dy * dy + 1e-6, r = Math.sqrt(r2)
+      const r2 = dx * dx + dy * dy + 1e-4, r = Math.sqrt(r2)
       ax += G * o.m / r2 * dx / r; ay += G * o.m / r2 * dy / r
     })
     return { dx: b.vx, dy: b.vy, dvx: ax, dvy: ay }
