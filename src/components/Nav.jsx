@@ -19,7 +19,7 @@ export default function Nav() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <NavLink to="/" className={styles.logo}>
         <span className={styles.logoSymbol}>∇</span>
-        <span className={styles.logoText}>LitPhysics</span>
+        <span className={styles.logoText}>Kkshitij Vasshisth</span>
       </NavLink>
 
       <div className={`${styles.links} ${open ? styles.open : ''}`}>
