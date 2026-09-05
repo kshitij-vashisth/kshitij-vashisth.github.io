@@ -283,8 +283,8 @@ function SimModal({ project, onClose }) {
           {SimComponent
             ? <SimComponent />
             : <div style={{ padding: 40, color: 'rgba(255,255,255,0.4)', textAlign: 'center' }}>
-                Simulation not found.
-              </div>
+              Simulation not found.
+            </div>
           }
         </div>
       </div>
@@ -292,8 +292,73 @@ function SimModal({ project, onClose }) {
   )
 }
 
+function GameModal({ onClose }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+
+  useEffect(() => {
+    const handler = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [onClose])
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.88)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        backdropFilter: 'blur(4px)',
+      }}
+    >
+      <div
+        onClick={e => e.stopPropagation()}
+        style={{
+          width: 'min(960px, 95vw)',
+          height: 'min(640px, 90vh)',
+          background: '#000',
+          borderRadius: 12,
+          overflow: 'hidden',
+          boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '10px 16px',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          background: '#0f0f13',
+        }}>
+          <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-mono)' }}>
+            🎮 Game
+          </span>
+          <button
+            onClick={onClose}
+            style={{
+              background: 'rgba(255,255,255,0.08)', border: 'none',
+              color: '#fff', borderRadius: 6, width: 30, height: 30,
+              cursor: 'pointer', fontSize: 15,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >✕</button>
+        </div>
+        <iframe
+          src="/game/index.html"
+          style={{ flex: 1, border: 'none', width: '100%' }}
+          allow="autoplay; fullscreen"
+        />
+      </div>
+    </div>
+  )
+}
+
 export default function Home() {
   const canvasRef = useRef(null)
+  const [showGame, setShowGame] = useState(false)
   const [activeVideo, setActiveVideo] = useState(null)
   const [activeSim, setActiveSim] = useState(null)
 
@@ -305,6 +370,8 @@ export default function Home() {
       {activeSim && (
         <SimModal project={activeSim} onClose={() => setActiveSim(null)} />
       )}
+
+      {showGame && <GameModal onClose={() => setShowGame(false)} />}
 
       <section className={styles.hero}>
         <canvas ref={canvasRef} className={styles.stars} />
@@ -427,6 +494,12 @@ export default function Home() {
         <div className={styles.footerLogo}>∇ Kkshitij Vasshisth</div>
         <div className={styles.footerLinks}>
           <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer">GitHub</a>
+          <button
+            onClick={() => setShowGame(true)}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-3)', padding: 0 }}
+          >
+            🎮 Play
+          </button>
           <a href="mailto:kkshitijvasshisth@email.com">Email</a>
         </div>
         <div className={styles.footerNote}>Built with React · Deployed via GitHub Actions</div>
