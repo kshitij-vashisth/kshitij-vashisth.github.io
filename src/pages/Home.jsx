@@ -334,19 +334,35 @@ function GameModal({ onClose }) {
           background: '#0f0f13',
         }}>
           <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-mono)' }}>
-            🎮 Game
+            🐸 Dangerous Dave 2.0
           </span>
-          <button
-            onClick={onClose}
-            style={{
-              background: 'rgba(255,255,255,0.08)', border: 'none',
-              color: '#fff', borderRadius: 6, width: 30, height: 30,
-              cursor: 'pointer', fontSize: 15,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}
-          >✕</button>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <button
+              onClick={() => {
+                const el = document.querySelector('#game-iframe')
+                if (el.requestFullscreen) el.requestFullscreen()
+              }}
+              style={{
+                background: 'rgba(255,255,255,0.08)', border: 'none',
+                color: '#fff', borderRadius: 6, width: 30, height: 30,
+                cursor: 'pointer', fontSize: 13,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}
+              title="Fullscreen"
+            >⛶</button>
+            <button
+              onClick={onClose}
+              style={{
+                background: 'rgba(255,255,255,0.08)', border: 'none',
+                color: '#fff', borderRadius: 6, width: 30, height: 30,
+                cursor: 'pointer', fontSize: 15,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}
+            >✕</button>
+          </div>
         </div>
         <iframe
+          id="game-iframe"
           src="/game/index.html"
           style={{ flex: 1, border: 'none', width: '100%' }}
           allow="autoplay; fullscreen"
@@ -496,9 +512,15 @@ export default function Home() {
           <a href="https://github.com/kshitij-vashisth" target="_blank" rel="noreferrer">GitHub</a>
           <button
             onClick={() => setShowGame(true)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-3)', padding: 0 }}
+            style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              fontFamily: 'var(--font-mono)', fontSize: 13, padding: 0,
+              color: '#7c6af7',
+              textShadow: '0 0 8px rgba(124,106,247,0.8), 0 0 20px rgba(124,106,247,0.4)',
+              animation: 'gamePulse 2s ease infinite',
+            }}
           >
-            🎮 Play
+            🎮 Play Dangerous Dave 2.0 Demo!
           </button>
           <a href="mailto:kkshitijvasshisth@email.com">Email</a>
         </div>
